@@ -1,0 +1,27 @@
+{
+    "name": "imajinyun/php-toolkit",
+    "type": "library",
+    "description": "This is a toolkit for handling data for me.",
+    "keywords": [
+        "library"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "imajinyun",
+            "email": "imajinyun@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Component\\": "src/Component"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Component\\Test\\": "tests/Component"
+        }
+    },
+    "minimum-stability": "stable"
+}
