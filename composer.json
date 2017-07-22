@@ -15,12 +15,12 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Component\\": "src/Component"
+            "Toolkit\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Component\\Test\\": "tests/Component"
+            "Toolkit\\Test\\": "tests"
         }
     },
     "minimum-stability": "stable"
