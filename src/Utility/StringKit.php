@@ -55,7 +55,7 @@ class StringKit
     }
 
     /**
-     * Get the string before the first occurrence of the specified character in the string.
+     * Get string before the first occurrence of the specified character in the string.
      *
      * @param string $string
      * @param string $given
@@ -67,7 +67,19 @@ class StringKit
     }
 
     /**
-     * Get the string after the first occurrence of the specified character in the string.
+     * Get string before the last occurrence of the specified character in the string.
+     *
+     * @param string $string
+     * @param string $given
+     * @return string
+     */
+    public static function beforeOfLast(string $string, string $given) : string
+    {
+        return self::substr($string, 0, self::strrevpos($string, $given));
+    }
+
+    /**
+     * Get string after the first occurrence of the specified character in the string.
      *
      * @param string $string
      * @param string $given
@@ -76,11 +88,41 @@ class StringKit
     public static function afterOfFirst(string $string, string $given) : string
     {
         if (false !== $pos = mb_strpos($string, $given)) {
-            $start = $pos + self::length($given);
-
-            return self::substr($string, $start);
+            return self::substr($string, $pos + self::length($given));
         }
 
-        return $string;
+        return '';
+    }
+
+    /**
+     * Get string after the last occurrence of the specified character in the string.
+     *
+     * @param string $string
+     * @param string $given
+     * @return string
+     */
+    public static function afterOfLast(string $string, string $given) : string
+    {
+        if (false !== $pos = self::strrevpos($string, $given)) {
+            return self::substr($string, $pos + self::length($given));
+        }
+
+        return '';
+    }
+
+    /**
+     * Get first occurrence of the specified character in the reverse string.
+     *
+     * @param string $string
+     * @param string $given
+     * @return bool|int
+     */
+    public static function strrevpos(string $string, string $given)
+    {
+        if (false !== $pos = mb_strpos(strrev($string), strrev($given))) {
+            return self::length($string) - $pos - self::length($given);
+        }
+
+        return false;
     }
 }

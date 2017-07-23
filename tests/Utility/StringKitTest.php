@@ -11,13 +11,13 @@ class StringKitTest extends TestCase
 
     protected function setUp()
     {
-        $this->string = '我是中国人，我来自伟大的中华人民共和国';
+        $this->string = '我是中国人，我来自伟大的中华人民共和国，一个神奇的国度。';
     }
 
     public function testLengthString()
     {
         $actual = StringKit::length($this->string);
-        self::assertEquals(19, $actual);
+        self::assertEquals(28, $actual);
     }
 
     public function testSubString()
@@ -43,17 +43,30 @@ class StringKitTest extends TestCase
         $actual = StringKit::beforeOfFirst($this->string, '，');
 
         self::assertEquals($expect, $actual);
+        self::assertEmpty(StringKit::beforeOfFirst($this->string, ','));
+    }
+
+    public function testBeforeOfLastString()
+    {
+        $expect = '我是中国人，我来自伟大的中华人民共和国';
+        $actual = StringKit::beforeOfLast($this->string, '，');
+        self::assertEquals($expect, $actual);
+        self::assertEmpty(StringKit::beforeOfLast($this->string, ','));
     }
 
     public function testAfterOfFirstString()
     {
-        $expect = '我来自伟大的中华人民共和国';
+        $expect = '我来自伟大的中华人民共和国，一个神奇的国度。';
         $actual = StringKit::afterOfFirst($this->string, '，');
         self::assertEquals($expect, $actual);
+        self::assertEmpty(StringKit::afterOfFirst($this->string, ','));
+    }
 
-        $expect = $this->string;
-        $actual = StringKit::afterOfFirst($this->string, ',');
+    public function testAfterOfLastString()
+    {
+        $expect = '一个神奇的国度。';
+        $actual = StringKit::afterOfLast($this->string, '，');
         self::assertEquals($expect, $actual);
-
+        self::assertEmpty(StringKit::afterOfLast($this->string, ','));
     }
 }
