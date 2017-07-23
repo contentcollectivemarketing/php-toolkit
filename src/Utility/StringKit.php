@@ -53,4 +53,34 @@ class StringKit
 
         return $string;
     }
+
+    /**
+     * Get the string before the first occurrence of the specified character in the string.
+     *
+     * @param string $string
+     * @param string $given
+     * @return string
+     */
+    public static function beforeOfFirst(string $string, string $given) : string
+    {
+        return self::substr($string, 0, mb_strpos($string, $given));
+    }
+
+    /**
+     * Get the string after the first occurrence of the specified character in the string.
+     *
+     * @param string $string
+     * @param string $given
+     * @return string
+     */
+    public static function afterOfFirst(string $string, string $given) : string
+    {
+        if (false !== $pos = mb_strpos($string, $given)) {
+            $start = $pos + self::length($given);
+
+            return self::substr($string, $start);
+        }
+
+        return $string;
+    }
 }
