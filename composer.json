@@ -12,7 +12,9 @@
             "email": "imajinyun@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "phpunit/phpunit": "^6.2"
+    },
     "autoload": {
         "psr-4": {
             "Toolkit\\": "src"
