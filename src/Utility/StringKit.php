@@ -36,4 +36,21 @@ class StringKit
 
         return mb_substr($string, $start, $length, 'UTF-8');
     }
+
+    /**
+     * Get part of string that intercepts the fixed length.
+     *
+     * @param string $string
+     * @param int    $length
+     * @param string $placeholder
+     * @return string
+     */
+    public static function truncate($string, $length = 15, $placeholder = '...') : string
+    {
+        if (self::length($string) >= ($length + 1)) {
+            $string = self::substr($string, 0, $length) . $placeholder;
+        }
+
+        return $string;
+    }
 }

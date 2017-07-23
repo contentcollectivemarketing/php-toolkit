@@ -26,5 +26,14 @@ class StringKitTest extends TestCase
         $actual = StringKit::substr($this->string, 0, 10);
 
         self::assertEquals($expect, $actual);
+        self::assertEquals($this->string, StringKit::substr($this->string, 0));
+    }
+
+    public function testTruncateString()
+    {
+        $expect = StringKit::substr($this->string, 0, 15) . '...';
+        $actual = StringKit::truncate($this->string);
+
+        self::assertEquals($expect, $actual);
     }
 }
