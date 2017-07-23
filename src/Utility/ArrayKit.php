@@ -10,21 +10,33 @@ namespace Toolkit\Utility;
 class ArrayKit
 {
     /**
-     * Get the value by key name in the one-dimensional array.
+     * Get an item from an array using key.
      *
-     * @param array  $array
-     * @param string $key
-     * @param string $default
-     * @return string
+     * @param array $array
+     * @param mixed $key
+     * @param null  $default
+     * @return null|mixed
      */
-    public static function get(array $array, string $key, string $default = '')
+    public static function get(array $array, $key, $default = null)
     {
         if ($key === null) {
-            return $key;
+            return $array;
         }
 
-        if (isset($array[$key])) {
+        if (static::exists($array, $key)) {
             return $array[$key] ?: $default;
         }
+    }
+
+    /**
+     * Determine if the given key exists in the provided array.
+     *
+     * @param array $array
+     * @param mixed $key
+     * @return bool
+     */
+    public static function exists(array $array, $key) : bool
+    {
+        return array_key_exists($key, $array);
     }
 }

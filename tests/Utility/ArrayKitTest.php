@@ -19,5 +19,8 @@ class ArrayKitTest extends TestCase
         self::assertEquals('', ArrayKit::get($array, 'b'));
         self::assertEquals(false, ArrayKit::get($array, 'c'));
         self::assertEquals(null, ArrayKit::get($array, 'd'));
+        self::assertEquals(null, ArrayKit::get($array, 'e'));
+        self::assertEquals(0, ArrayKit::get($array, 'f', 0));
+        self::assertEquals($array, ArrayKit::get($array, null));
     }
 }
