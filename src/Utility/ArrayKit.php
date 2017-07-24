@@ -28,6 +28,26 @@ class ArrayKit
         }
     }
 
+    public static function set(array & $array, $key, $val = null) : array
+    {
+        if (null === $key) {
+            return $array;
+        }
+
+        $array[$key] = $val;
+
+        return $array;
+    }
+
+    public static function add(array $array, $key, $val = null) : array
+    {
+        if (null === self::get($array, $key)) {
+            self::set($array, $key, $val);
+        }
+
+        return $array;
+    }
+
     /**
      * Determine if the given key exists in the provided array.
      *

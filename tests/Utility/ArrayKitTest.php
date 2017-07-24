@@ -23,4 +23,27 @@ class ArrayKitTest extends TestCase
         self::assertEquals(0, ArrayKit::get($array, 'f', 0));
         self::assertEquals($array, ArrayKit::get($array, null));
     }
+
+    public function testSet()
+    {
+        $expect = $actual = [];
+        $expect = ArrayKit::set($expect, 'a', null);
+        $actual['a'] = null;
+        self::assertEquals($expect, $actual);
+
+        $expect = ArrayKit::set($expect, null);
+        self::assertEquals($expect, $actual);
+    }
+
+    public function testAdd()
+    {
+        $expect = $actual = [];
+        $expect = ArrayKit::add($expect, 0, 'hello');
+        $actual[] = 'hello';
+        self::assertEquals($expect, $actual);
+
+        $expect = ArrayKit::add($expect, 1);
+        $actual[] = null;
+        self::assertEquals($expect, $actual);
+    }
 }
