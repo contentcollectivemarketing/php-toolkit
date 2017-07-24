@@ -75,17 +75,4 @@ class ArrayKit
     {
         return array_key_exists($key, $array);
     }
-
-    /**
-     * Determines if an array is associative.
-     *
-     * @param array $array
-     * @return bool
-     */
-    public static function isAssoc(array $array) : bool
-    {
-        $keys = array_keys($array);
-
-        return array_keys($array) === $keys;
-    }
 }
