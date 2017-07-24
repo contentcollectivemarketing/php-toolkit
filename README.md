@@ -1,2 +1,5 @@
 # php-toolkit
-🏂 This is a toolkit for handling data.
+
+***
+
+🏂 This is a small toolkit for easy and easy handling of some data.
