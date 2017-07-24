@@ -46,4 +46,11 @@ class ArrayKitTest extends TestCase
         $actual[] = null;
         self::assertEquals($expect, $actual);
     }
+
+    public function testIsAssoc()
+    {
+        $expect = ['x' => '', 'y' => false, 'z' => null];
+        $actual = ArrayKit::isAssoc($expect);
+        self::assertTrue($actual);
+    }
 }
