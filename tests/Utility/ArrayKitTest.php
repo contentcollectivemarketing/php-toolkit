@@ -7,7 +7,7 @@ use Toolkit\Utility\ArrayKit;
 
 class ArrayKitTest extends TestCase
 {
-    public function testGet()
+    public function testGetFromArray()
     {
         $array = [
             'a' => 'hello',
@@ -24,7 +24,7 @@ class ArrayKitTest extends TestCase
         self::assertEquals($array, ArrayKit::get($array, null));
     }
 
-    public function testSet()
+    public function testSetFromArray()
     {
         $expect = $actual = [];
         $expect = ArrayKit::set($expect, 'a', null);
@@ -35,7 +35,7 @@ class ArrayKitTest extends TestCase
         self::assertEquals($expect, $actual);
     }
 
-    public function testAdd()
+    public function testAddFromArray()
     {
         $expect = $actual = [];
         $expect = ArrayKit::add($expect, 0, 'hello');
@@ -45,5 +45,16 @@ class ArrayKitTest extends TestCase
         $expect = ArrayKit::add($expect, 1);
         $actual[] = null;
         self::assertEquals($expect, $actual);
+    }
+
+    public function testTrimFromArray()
+    {
+        $actual[] = ' hello ';
+        $actual = ArrayKit::trim($actual);
+        self::assertEquals(['hello'], $actual);
+
+        $actual[] = [' a ', ' b '];
+        $actual = ArrayKit::trim($actual);
+        self::assertEquals(['hello', ['a', 'b']], $actual);
     }
 }

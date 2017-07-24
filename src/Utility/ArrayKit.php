@@ -57,8 +57,8 @@ class ArrayKit
      */
     public static function add(array $array, $key, $val = null) : array
     {
-        if (null === self::get($array, $key)) {
-            self::set($array, $key, $val);
+        if (null === static::get($array, $key)) {
+            static::set($array, $key, $val);
         }
 
         return $array;
@@ -74,5 +74,24 @@ class ArrayKit
     public static function exists(array $array, $key) : bool
     {
         return array_key_exists($key, $array);
+    }
+
+    /**
+     * Strip whitespace an array item from an given array.
+     *
+     * @param array $array
+     * @return array
+     */
+    public static function trim(array $array) : array
+    {
+        foreach ($array as $key => $val) {
+            if (is_array($val)) {
+                $array[$key] = static::trim($val);
+            } elseif (is_string($val)) {
+                $array[$key] = trim($val);
+            }
+        }
+
+        return $array;
     }
 }
