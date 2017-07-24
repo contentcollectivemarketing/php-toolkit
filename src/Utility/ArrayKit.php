@@ -28,6 +28,14 @@ class ArrayKit
         }
     }
 
+    /**
+     * Set an array item to a given value using key.
+     *
+     * @param array $array
+     * @param mixed $key
+     * @param null  $val
+     * @return array
+     */
     public static function set(array & $array, $key, $val = null) : array
     {
         if (null === $key) {
@@ -39,6 +47,14 @@ class ArrayKit
         return $array;
     }
 
+    /**
+     * Add an array item to a given value using key.
+     *
+     * @param array $array
+     * @param mixed $key
+     * @param null  $val
+     * @return array
+     */
     public static function add(array $array, $key, $val = null) : array
     {
         if (null === self::get($array, $key)) {
