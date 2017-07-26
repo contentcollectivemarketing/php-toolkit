@@ -57,4 +57,13 @@ class ArrayKitTest extends TestCase
         $actual = ArrayKit::trim($actual);
         self::assertEquals(['hello', ['a', 'b']], $actual);
     }
+
+    public function testDivideFromArray()
+    {
+        $actual = ['x' => 'a', 'y' => 'b', 'z' => 'c', 'a', 'b'];
+        $expect = [['x', 'y', 'z', 0, 1], ['a', 'b', 'c', 'a', 'b']];
+
+        $actual = ArrayKit::divide($actual);
+        self::assertSame($expect, $actual);
+    }
 }

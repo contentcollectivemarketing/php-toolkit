@@ -77,6 +77,17 @@ class ArrayKit
     }
 
     /**
+     * Divide an array into two arrays. One with keys and the other with values.
+     *
+     * @param array $array
+     * @return array
+     */
+    public static function divide(array $array) : array
+    {
+        return [array_keys($array), array_values($array)];
+    }
+
+    /**
      * Strip whitespace an array item from an given array.
      *
      * @param array $array
