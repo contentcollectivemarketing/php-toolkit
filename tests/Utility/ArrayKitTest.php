@@ -47,6 +47,22 @@ class ArrayKitTest extends TestCase
         self::assertEquals($expect, $actual);
     }
 
+    public function testMapFromArray()
+    {
+        $array = [
+            ['id' => '1', 'name' => 'a', 'group' => 'x'],
+            ['id' => '2', 'name' => 'b', 'group' => 'x'],
+            ['id' => '3', 'name' => 'c', 'group' => 'y'],
+        ];
+        $expect = ['1' => 'a', '2' => 'b', '3' => 'c'];
+        $actual = ArrayKit::map($array, 'id', 'name');
+        self::assertSame($expect, $actual);
+
+        $expect = ['x' => ['1' => 'a', '2' => 'b'], 'y' => ['3' => 'c']];
+        $actual = ArrayKit::map($array, 'id', 'name', 'group');
+        self::assertSame($expect, $actual);
+    }
+
     public function testTrimFromArray()
     {
         $actual[] = ' hello ';

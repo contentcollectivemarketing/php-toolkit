@@ -65,6 +65,31 @@ class ArrayKit
     }
 
     /**
+     * Builds a map (key-value pairs) from a multidimensional array or an array of objects.
+     *
+     * @param array  $array
+     * @param string $from
+     * @param string $to
+     * @param null   $group
+     * @return array
+     */
+    public static function map(array $array, string $from, string $to, $group = null) : array
+    {
+        $result = [];
+        foreach ($array as $item) {
+            $key = static::get($item, $from);
+            $val = static::get($item, $to);
+            if (null !== $group) {
+                $result[static::get($item, $group)][$key] = $val;
+            } else {
+                $result[$key] = $val;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * Determine if the given key exists in the provided array.
      *
      * @param array $array
