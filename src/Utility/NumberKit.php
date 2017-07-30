@@ -7,8 +7,21 @@ namespace Toolkit\Utility;
  *
  * @package Toolkit\Utility
  */
-class Num
+class NumberKit
 {
+    /**
+     * Format a number with grouped thousands.
+     *
+     * @param mixed  $number
+     * @param int    $decimal
+     * @param string $point
+     * @return string
+     */
+    public static function toNumber($number, int $decimal = 2, string $point = '.') : string
+    {
+        return number_format($number, $decimal, $point, '');
+    }
+
     /**
      * Format number to RMB forms.
      *

@@ -7,7 +7,7 @@ namespace Toolkit\Utility;
  *
  * @package Toolkit\Utility
  */
-class Str
+class StringKit
 {
     /**
      * Get string length.

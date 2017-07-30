@@ -7,7 +7,7 @@ namespace Toolkit\Utility;
  *
  * @package Toolkit\Utility
  */
-class Tree
+class TreeKit
 {
     public static function getTree(array & $array)
     {
