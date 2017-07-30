@@ -20,6 +20,15 @@ class NumberKit
     /**
      * Format bytes to bytes, kilobytes, megabytes, gigabytes, terabytes, petabytes.
      *
+     * - `These two will be equivalent as of PHP 5.6.0`
+     *
+     * ```php
+     * $bytes /= $base ** $pow;
+     * $bytes /= pow($base, $pow);
+     *
+     * $bytes /= (1 << (10 * $pow));
+     * ```
+     *
      * @param int    $bytes
      * @param int    $precision
      * @param string $delimiter
@@ -54,11 +63,7 @@ class NumberKit
                 $bytes = max($bytes, 0);
                 $pow = floor(($bytes ? log($bytes) : 0) / log($base));
                 $pow = min($pow, count($units) - 1);
-
-                // Uncomment one of the following alternatives
-                // pow($base, $pow): http://php.net/manual/en/function.pow.php#114389
                 $bytes /= $base ** $pow;
-                // $bytes /= (1 << (10 * $pow));
                 break;
         }
         $unit = in_array($type, [1, 3], true) ? $units[$pow] : $pow;
