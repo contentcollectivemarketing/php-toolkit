@@ -64,6 +64,7 @@ class NumberKit
     ) : string {
         $units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
         $base = 1024;
+        $pow = 0;
         switch ($type) {
             case 2:
                 foreach ($units as $pow) {
