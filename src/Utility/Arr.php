@@ -3,12 +3,12 @@
 namespace Toolkit\Utility;
 
 /**
- * Class ArrayKit
+ * Class Arr
  *
  * @package Toolkit\Utility
  * @link    https://github.com/laravel/framework
  */
-class ArrayKit
+class Arr
 {
     /**
      * Get an item from an array using key.

@@ -3,11 +3,11 @@
 namespace Toolkit\Utility;
 
 /**
- * Class StringKit
+ * Class Str
  *
  * @package Toolkit\Utility
  */
-class StringKit
+class Str
 {
     /**
      * Get string length.

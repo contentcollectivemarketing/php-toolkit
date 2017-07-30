@@ -3,9 +3,9 @@
 namespace Toolkit\Test\Utility;
 
 use PHPUnit\Framework\TestCase;
-use Toolkit\Utility\ArrayKit;
+use Toolkit\Utility\Arr;
 
-class ArrayKitTest extends TestCase
+class ArrTest extends TestCase
 {
     public function testGetFromArray()
     {
@@ -15,34 +15,34 @@ class ArrayKitTest extends TestCase
             'c' => false,
             'd' => null
         ];
-        self::assertEquals('hello', ArrayKit::get($array, 'a'));
-        self::assertEquals('', ArrayKit::get($array, 'b'));
-        self::assertEquals(false, ArrayKit::get($array, 'c'));
-        self::assertEquals(null, ArrayKit::get($array, 'd'));
-        self::assertEquals(null, ArrayKit::get($array, 'e'));
-        self::assertEquals(0, ArrayKit::get($array, 'f', 0));
-        self::assertEquals($array, ArrayKit::get($array, null));
+        self::assertEquals('hello', Arr::get($array, 'a'));
+        self::assertEquals('', Arr::get($array, 'b'));
+        self::assertEquals(false, Arr::get($array, 'c'));
+        self::assertEquals(null, Arr::get($array, 'd'));
+        self::assertEquals(null, Arr::get($array, 'e'));
+        self::assertEquals(0, Arr::get($array, 'f', 0));
+        self::assertEquals($array, Arr::get($array, null));
     }
 
     public function testSetFromArray()
     {
         $expect = $actual = [];
-        $expect = ArrayKit::set($expect, 'a', null);
+        $expect = Arr::set($expect, 'a', null);
         $actual['a'] = null;
         self::assertEquals($expect, $actual);
 
-        $expect = ArrayKit::set($expect, null);
+        $expect = Arr::set($expect, null);
         self::assertEquals($expect, $actual);
     }
 
     public function testAddFromArray()
     {
         $expect = $actual = [];
-        $expect = ArrayKit::add($expect, 0, 'hello');
+        $expect = Arr::add($expect, 0, 'hello');
         $actual[] = 'hello';
         self::assertEquals($expect, $actual);
 
-        $expect = ArrayKit::add($expect, 1);
+        $expect = Arr::add($expect, 1);
         $actual[] = null;
         self::assertEquals($expect, $actual);
     }
@@ -55,29 +55,29 @@ class ArrayKitTest extends TestCase
             ['id' => '3', 'name' => 'c', 'group' => 'y'],
         ];
         $expect = ['1' => 'a', '2' => 'b', '3' => 'c'];
-        $actual = ArrayKit::map($array, 'id', 'name');
+        $actual = Arr::map($array, 'id', 'name');
         self::assertSame($expect, $actual);
 
         $expect = ['x' => ['1' => 'a', '2' => 'b'], 'y' => ['3' => 'c']];
-        $actual = ArrayKit::map($array, 'id', 'name', 'group');
+        $actual = Arr::map($array, 'id', 'name', 'group');
         self::assertSame($expect, $actual);
     }
 
     public function testOnlyFromArray()
     {
         $actual = ['id' => '1001', 'name' => 'hello', 'age' => 18];
-        self::assertSame(['id' => '1001'], ArrayKit::only($actual, ['id']));
-        self::assertSame(['age' => 18], ArrayKit::only($actual, 'age'));
+        self::assertSame(['id' => '1001'], Arr::only($actual, ['id']));
+        self::assertSame(['age' => 18], Arr::only($actual, 'age'));
     }
 
     public function testTrimFromArray()
     {
         $actual[] = ' hello ';
-        $actual = ArrayKit::trim($actual);
+        $actual = Arr::trim($actual);
         self::assertEquals(['hello'], $actual);
 
         $actual[] = [' a ', ' b '];
-        $actual = ArrayKit::trim($actual);
+        $actual = Arr::trim($actual);
         self::assertEquals(['hello', ['a', 'b']], $actual);
     }
 
@@ -86,7 +86,7 @@ class ArrayKitTest extends TestCase
         $actual = ['x' => 'a', 'y' => 'b', 'z' => 'c', 'a', 'b'];
         $expect = [['x', 'y', 'z', 0, 1], ['a', 'b', 'c', 'a', 'b']];
 
-        $actual = ArrayKit::divide($actual);
+        $actual = Arr::divide($actual);
         self::assertSame($expect, $actual);
     }
 }

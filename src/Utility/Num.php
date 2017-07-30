@@ -3,13 +3,20 @@
 namespace Toolkit\Utility;
 
 /**
- * Class NumberKit
+ * Class NumKit
  *
  * @package Toolkit\Utility
  */
-class NumberKit
+class Num
 {
-    public static function toMoney($money, int $precision = 2)
+    /**
+     * Format money
+     *
+     * @param mixed $money
+     * @param int   $precision
+     * @return string
+     */
+    public static function toMoney($money, int $precision = 2) : string
     {
         setlocale(LC_ALL, 'zh_CN.UTF-8');
         $format = '%.' . $precision . 'n';
