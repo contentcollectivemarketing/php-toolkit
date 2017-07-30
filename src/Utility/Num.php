@@ -10,7 +10,7 @@ namespace Toolkit\Utility;
 class Num
 {
     /**
-     * Format money
+     * Format number to RMB forms.
      *
      * @param mixed $money
      * @param int   $precision
