@@ -63,6 +63,13 @@ class ArrayKitTest extends TestCase
         self::assertSame($expect, $actual);
     }
 
+    public function testOnlyFromArray()
+    {
+        $actual = ['id' => '1001', 'name' => 'hello', 'age' => 18];
+        self::assertSame(['id' => '1001'], ArrayKit::only($actual, ['id']));
+        self::assertSame(['age' => 18], ArrayKit::only($actual, 'age'));
+    }
+
     public function testTrimFromArray()
     {
         $actual[] = ' hello ';

@@ -113,6 +113,18 @@ class ArrayKit
     }
 
     /**
+     * Get a subset of the items from the given array.
+     *
+     * @param array        $array
+     * @param array|string $key
+     * @return array
+     */
+    public static function only(array $array, $key) : array
+    {
+        return array_intersect_key($array, array_flip((array)$key));
+    }
+
+    /**
      * Strip whitespace an array item from an given array.
      *
      * @param array $array
