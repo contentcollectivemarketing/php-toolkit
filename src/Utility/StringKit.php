@@ -103,26 +103,10 @@ class StringKit
      */
     public static function afterOfLast(string $string, string $given) : string
     {
-        if (false !== $pos = self::strrevpos($string, $given)) {
+        if (false !== $pos = mb_strrpos($string, $given)) {
             return self::substr($string, $pos + self::length($given));
         }
 
         return '';
-    }
-
-    /**
-     * Get first occurrence of the specified character in the reverse string.
-     *
-     * @param string $string
-     * @param string $given
-     * @return bool|int
-     */
-    public static function strrevpos(string $string, string $given)
-    {
-        if (false !== $pos = mb_strpos(strrev($string), strrev($given))) {
-            return self::length($string) - $pos - self::length($given);
-        }
-
-        return false;
     }
 }
