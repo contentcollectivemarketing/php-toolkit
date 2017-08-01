@@ -10,6 +10,67 @@ namespace Toolkit\Utility;
 class NumberKit
 {
     /**
+     * Compare floating point numbers.
+     *
+     * @param mixed  $a
+     * @param mixed  $b
+     * @param string $operator
+     * @return bool
+     */
+    public static function compare($a, $b, string $operator = '=') : bool
+    {
+        $epsilon = 0.00001;
+        $a = (float)$a;
+        $b = (float)$b;
+
+        switch ($operator) {
+            case '=':
+            case 'eq':
+                if (abs($a - $b) < $epsilon) {
+                    return true;
+                }
+            case '<':
+            case 'lt':
+                if (abs($a - $b) < $epsilon) {
+                    return false;
+                } else {
+                    if ($a < $b) {
+                        return true;
+                    }
+                }
+            case '<=':
+            case 'lte':
+                if (self::compare($a, $b, '<') || self::compare($a, $b)) {
+                    return true;
+                }
+            case '>':
+            case 'gt':
+                if (abs($a - $b) < $epsilon) {
+                    return false;
+                } else {
+                    if ($a > $b) {
+                        return true;
+                    }
+                }
+            case '>=':
+            case 'gte':
+                if (self::compare($a, $b, '>') || self::compare($a, $b)) {
+                    return true;
+                }
+            case '<>':
+            case '!=':
+            case 'ne':
+                if (abs($a - $b) > $epsilon) {
+                    return true;
+                }
+            default:
+                throw new \InvalidArgumentException('Invalid operator.');
+        }
+
+        return false;
+    }
+
+    /**
      * Format a number with grouped thousands.
      *
      * @param mixed  $number

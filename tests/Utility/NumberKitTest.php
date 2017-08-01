@@ -7,6 +7,38 @@ use Toolkit\Utility\NumberKit;
 
 class NumberKitTest extends TestCase
 {
+    public function testCompare()
+    {
+        $expect = [
+            true, true, true, true, true, true, true, true, true, true, true, true, true
+        ];
+        $actual = [
+            NumberKit::compare(4, 4),
+            NumberKit::compare(5, 5, 'eq'),
+            NumberKit::compare(3.00, 3.001, '<'),
+            NumberKit::compare(0.00001, 0.0001, 'lt'),
+            NumberKit::compare(2.9966, 2.9966, '<='),
+            NumberKit::compare(0.9966, 0.9966, 'lte'),
+            NumberKit::compare('99.00002', '99.00001', '>'),
+            NumberKit::compare(true, false, 'gt'),
+            NumberKit::compare('0.01', '0.01', '>='),
+            NumberKit::compare(false, false, 'gte'),
+            NumberKit::compare(1, 2, '<>'),
+            NumberKit::compare(true, false, '!='),
+            NumberKit::compare(100, '100.01', 'ne')
+        ];
+        self::assertSame($expect, $actual);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Invalid operator.
+     */
+    public function testCompareException()
+    {
+        self::assertTrue(NumberKit::compare(1, 1, 'x'));
+    }
+
     public function testToNumber()
     {
         $expect = [
