@@ -16,6 +16,7 @@ class NumberKit
      * @param mixed  $b
      * @param string $operator
      * @return bool
+     * @throws \InvalidArgumentException
      */
     public static function compare($a, $b, string $operator = '=') : bool
     {
@@ -25,11 +26,13 @@ class NumberKit
 
         switch ($operator) {
             case '=':
+                // `=` and `eq` equivalent.
             case 'eq':
                 if (abs($a - $b) < $epsilon) {
                     return true;
                 }
             case '<':
+                // `<` and `lt` equivalent.
             case 'lt':
                 if (abs($a - $b) < $epsilon) {
                     return false;
@@ -39,11 +42,13 @@ class NumberKit
                     }
                 }
             case '<=':
+                // `<=` and `lte` equivalent.
             case 'lte':
                 if (self::compare($a, $b, '<') || self::compare($a, $b)) {
                     return true;
                 }
             case '>':
+                // `>` and `gt` equivalent.
             case 'gt':
                 if (abs($a - $b) < $epsilon) {
                     return false;
@@ -53,12 +58,14 @@ class NumberKit
                     }
                 }
             case '>=':
+                // `>=` and `gte` equivalent.
             case 'gte':
                 if (self::compare($a, $b, '>') || self::compare($a, $b)) {
                     return true;
                 }
             case '<>':
             case '!=':
+                // `<>` and `!=` and `ne` equivalent.
             case 'ne':
                 if (abs($a - $b) > $epsilon) {
                     return true;
