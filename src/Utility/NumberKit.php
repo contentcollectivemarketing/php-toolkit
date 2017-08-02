@@ -32,32 +32,33 @@ class NumberKit
 
         switch ($operator) {
             case '=':
-                // `=` and `eq` equivalent.
+                // equal
             case 'eq':
                 return $func();
             case '<':
-                // `<` and `lt` equivalent.
+                // less than
             case 'lt':
                 return $func() ? false : $a < $b ? true : false;
             case '<=':
-                // `<=` and `lte` equivalent.
+                // less than or equal
             case 'lte':
                 if (self::compare($a, $b, '<') || self::compare($a, $b)) {
                     return true;
                 }
             case '>':
-                // `>` and `gt` equivalent.
+                // greater than
             case 'gt':
                 return $func() ? false : $a > $b ? true : false;
             case '>=':
-                // `>=` and `gte` equivalent.
+                // greater than or equal
             case 'gte':
                 if (self::compare($a, $b, '>') || self::compare($a, $b)) {
                     return true;
                 }
             case '<>':
+                // not equal
             case '!=':
-                // `<>` and `!=` and `ne` equivalent.
+                // not equal
             case 'ne':
                 return $func(true) ? true : false;
             default:
