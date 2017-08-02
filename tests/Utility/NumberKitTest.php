@@ -39,6 +39,21 @@ class NumberKitTest extends TestCase
         self::assertTrue(NumberKit::compare(1, 1, 'x'));
     }
 
+    public function testToPhone()
+    {
+        $expect = [
+            '111****2323',
+            '112****4556',
+            '133----9999'
+        ];
+        $actual = [
+            NumberKit::toPhone('11110142323'),
+            NumberKit::toPhone(11223344556),
+            NumberKit::toPhone('13399999999', '----')
+        ];
+        self::assertSame($expect, $actual);
+    }
+
     public function testToNumber()
     {
         $expect = [
