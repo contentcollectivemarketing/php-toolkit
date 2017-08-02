@@ -75,7 +75,7 @@ class StringKit
      */
     public static function beforeOfLast(string $string, string $given) : string
     {
-        return self::substr($string, 0, self::strrevpos($string, $given));
+        return self::substr($string, 0, mb_strrpos($string, $given));
     }
 
     /**
