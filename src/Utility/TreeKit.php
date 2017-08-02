@@ -66,8 +66,8 @@ class TreeKit
             if (!empty($child)) {
                 $val[self::$childKey] = $child;
             }
+            unset($val);
         }
-        unset($val);
 
         return $children;
     }
