@@ -24,23 +24,21 @@ class NumberKit
         $a = (float)$a;
         $b = (float)$b;
 
+        $func = function ($type = false) use ($a, $b, $epsilon) {
+            $value = abs($a - $b);
+
+            return $type ? $value > $epsilon : $value < $epsilon;
+        };
+
         switch ($operator) {
             case '=':
                 // `=` and `eq` equivalent.
             case 'eq':
-                if (abs($a - $b) < $epsilon) {
-                    return true;
-                }
+                return $func();
             case '<':
                 // `<` and `lt` equivalent.
             case 'lt':
-                if (abs($a - $b) < $epsilon) {
-                    return false;
-                } else {
-                    if ($a < $b) {
-                        return true;
-                    }
-                }
+                return $func() ? false : $a < $b ? true : false;
             case '<=':
                 // `<=` and `lte` equivalent.
             case 'lte':
@@ -50,13 +48,7 @@ class NumberKit
             case '>':
                 // `>` and `gt` equivalent.
             case 'gt':
-                if (abs($a - $b) < $epsilon) {
-                    return false;
-                } else {
-                    if ($a > $b) {
-                        return true;
-                    }
-                }
+                return $func() ? false : $a > $b ? true : false;
             case '>=':
                 // `>=` and `gte` equivalent.
             case 'gte':
@@ -67,14 +59,10 @@ class NumberKit
             case '!=':
                 // `<>` and `!=` and `ne` equivalent.
             case 'ne':
-                if (abs($a - $b) > $epsilon) {
-                    return true;
-                }
+                return $func(true) ? true : false;
             default:
                 throw new \InvalidArgumentException('Invalid operator.');
         }
-
-        return false;
     }
 
     /**
