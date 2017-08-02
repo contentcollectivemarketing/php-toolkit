@@ -97,7 +97,7 @@ class NumberKit
         if ($type === 1) {
             $phone = substr_replace($phone, $placeholder, 3, 4);
         } else {
-            $phone = preg_replace('/(\d{3})/\d{4}', '$1' . $placeholder, $phone);
+            $phone = preg_replace('/(\d{3})\d{4}/', "$1{$placeholder}", $phone);
         }
 
         return $phone;
