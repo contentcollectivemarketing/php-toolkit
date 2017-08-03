@@ -55,7 +55,7 @@ class TreeKit
         foreach ($array as $key => $val) {
             if ($index === $val[self::$parentKey]) {
                 $child = self::getTree($array, $val[self::$primaryKey]);
-                if ($child) {
+                if (!empty($child)) {
                     $val[self::$childKey] = $child;
                 }
                 $tree[] = $val;
