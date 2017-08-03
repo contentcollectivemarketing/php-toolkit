@@ -44,6 +44,8 @@ class NumberKit
             case 'lte':
                 if (self::compare($a, $b, '<') || self::compare($a, $b)) {
                     return true;
+                } else {
+                    return false;
                 }
             case '>':
                 // greater than
@@ -54,6 +56,8 @@ class NumberKit
             case 'gte':
                 if (self::compare($a, $b, '>') || self::compare($a, $b)) {
                     return true;
+                } else {
+                    return false;
                 }
             case '<>':
                 // not equal
