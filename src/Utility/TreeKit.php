@@ -43,6 +43,30 @@ class TreeKit
     }
 
     /**
+     * Get a tree from a flat array using recursion.
+     *
+     * @param array $array
+     * @param int   $index
+     * @return array
+     */
+    public static function getTree(array & $array, $index = 0) : array
+    {
+        $tree = [];
+        foreach ($array as $key => $val) {
+            if ($index === $val[self::$parentKey]) {
+                $child = self::getTree($array, $val[self::$primaryKey]);
+                if ($child) {
+                    $val[self::$childKey] = $child;
+                }
+                $tree[] = $val;
+                unset($array[$val[self::$primaryKey]]);
+            }
+        }
+
+        return $tree;
+    }
+
+    /**
      * Make a tree from a flat array using recursion.
      *
      * @param array $array
@@ -120,5 +144,31 @@ class TreeKit
         }
 
         return $child;
+    }
+
+    /**
+     * Get id array from a tree array.
+     *
+     * @param array $array
+     * @return array
+     */
+    public static function getTreeId(array & $array) : array
+    {
+        $tree = [];
+        $flag = true;
+        foreach ($array as $key => $val) {
+            if (isset($val[self::$childKey])) {
+                $flag = false;
+                $tree[$val[self::$primaryKey]] = self::getTreeId($val[self::$childKey]);
+            } else {
+                if ($val[self::$parentKey] && $flag) {
+                    $tree[] = $val[self::$primaryKey];
+                } else {
+                    $tree[$val[self::$primaryKey]] = [];
+                }
+            }
+        }
+
+        return $tree;
     }
 }

@@ -37,9 +37,43 @@ class TreeKitTest extends TestCase
             'children' => 'child'
         ];
         TreeKit::setConfig($config);
-        $array = $this->data;
-        $expect = TreeKit::buildTree($array);
-        $actual = TreeKit::makeTree($array);
+        $a = $b = $c = $this->data;
+        $x = TreeKit::getTree($a);
+        $y = TreeKit::makeTree($c);
+        $z = TreeKit::buildTree($b);
+        self::assertSame($x, $y);
+        self::assertSame($x, $z);
+        self::assertSame($y, $z);
+    }
+
+    public function testGetTreeId()
+    {
+        $config = [
+            'id'       => 'id',
+            'parentId' => 'pid',
+            'children' => 'child'
+        ];
+        TreeKit::setConfig($config);
+        $expect = [
+            10 => [
+                13 => [
+                    19 => [23],
+                    20 => []
+                ],
+                14 => []
+            ],
+            11 => [
+                15 => [21],
+                16 => []
+            ],
+            12 => [
+                17 => [22],
+                18 => []
+            ]
+        ];
+        $data = $this->data;
+        $array = TreeKit::makeTree($data);
+        $actual = TreeKit::getTreeId($array);
         self::assertSame($expect, $actual);
     }
 }
