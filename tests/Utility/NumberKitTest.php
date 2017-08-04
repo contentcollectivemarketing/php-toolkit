@@ -61,13 +61,13 @@ class NumberKitTest extends TestCase
             '111****2323',
             '112****4556',
             '133----9999',
-            '123with4444'
+            '144 hello world'
         ];
         $actual = [
             NumberKit::toPhone('11110142323'),
             NumberKit::toPhone(11223344556),
             NumberKit::toPhone('13399999999', '----', 2),
-            NumberKit::toPhone('123with4444')
+            NumberKit::toPhone('144 hello world')
         ];
         self::assertSame($expect, $actual);
     }

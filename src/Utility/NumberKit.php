@@ -79,13 +79,13 @@ class NumberKit
      * $phone = preg_replace('/(\d{3})\d{4}/', "$1{$placeholder}", '12345678901');
      * ```
      *
-     * @param mixed  $phone
+     * @param string $phone
      * @param string $placeholder
      * @return string
      */
-    public static function toPhone($phone, string $placeholder = '****') : string
+    public static function toPhone(string $phone, string $placeholder = '****') : string
     {
-        if (!is_numeric($phone) || strlen($phone) !== 11) {
+        if (!is_string($phone) || strlen($phone) !== 11) {
             return $phone;
         }
 
