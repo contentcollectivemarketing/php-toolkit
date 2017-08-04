@@ -73,7 +73,7 @@ class NumberKit
     /**
      * Mobile phone number partial encryption with given placeholder.
      *
-     * - `Perform a regular expression search and replace`
+     * - Perform a regular expression search and replace
      *
      * ```php
      * $phone = preg_replace('/(\d{3})\d{4}/', "$1{$placeholder}", '12345678901');
@@ -123,7 +123,7 @@ class NumberKit
     /**
      * Format bytes to bytes, kilobytes, megabytes, gigabytes, terabytes, petabytes.
      *
-     * - `These two will be equivalent as of PHP 5.6.0`
+     * - These two will be equivalent as of PHP 5.6.0
      *
      * ```php
      * $bytes /= $base ** $pow;
