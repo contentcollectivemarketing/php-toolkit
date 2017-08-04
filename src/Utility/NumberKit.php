@@ -73,27 +73,23 @@ class NumberKit
     /**
      * Mobile phone number partial encryption with given placeholder.
      *
+     * - `Perform a regular expression search and replace`
+     *
+     * ```php
+     * $phone = preg_replace('/(\d{3})\d{4}/', "$1{$placeholder}", '12345678901');
+     * ```
+     *
      * @param mixed  $phone
      * @param string $placeholder
-     * @param int    $type
      * @return string
      */
-    public static function toPhone(
-        $phone,
-        string $placeholder = '****',
-        int $type = 1
-    ) : string {
+    public static function toPhone($phone, string $placeholder = '****') : string
+    {
         if (!is_numeric($phone) || strlen($phone) !== 11) {
             return $phone;
         }
 
-        if ($type === 1) {
-            $phone = substr_replace($phone, $placeholder, 3, 4);
-        } else {
-            $phone = preg_replace('/(\d{3})\d{4}/', "$1{$placeholder}", $phone);
-        }
-
-        return $phone;
+        return substr_replace($phone, $placeholder, 3, 4);
     }
 
     /**
@@ -163,8 +159,9 @@ class NumberKit
                 }
                 break;
             case 3:
-                for ($i = 0, $pow = 0; $bytes >= $base && $i < 5; $i++, $pow++) {
+                for ($i = 0; $bytes >= $base && $i < 5; $i++) {
                     $bytes /= $base;
+                    $pow++;
                 }
                 break;
             default:
