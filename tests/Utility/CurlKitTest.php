@@ -30,6 +30,7 @@ class CurlKitTest extends TestCase
             'val' => 'server'
         ]);
         $actual = $this->Curl->response;
+        $this->Curl->close();
         $this->assertEquals('GET', $actual);
     }
 
@@ -39,6 +40,7 @@ class CurlKitTest extends TestCase
             'key' => 'REQUEST_METHOD',
             'val' => 'server'
         ]);
+        $this->Curl->__destruct();
         $this->assertEquals('POST', $this->Curl->response);
     }
 }
