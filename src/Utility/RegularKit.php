@@ -164,6 +164,17 @@ class RegularKit
     }
 
     /**
+     * Verify the IPv4 address.
+     *
+     * @param string $ip
+     * @return bool
+     */
+    public static function isIpv4(string $ip) : bool
+    {
+        return self::match(self::get('ipv4'), $ip);
+    }
+
+    /**
      * Perform a regular expression match.
      *
      * @param string $pattern

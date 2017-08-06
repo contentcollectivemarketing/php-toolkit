@@ -36,4 +36,11 @@ class RegulatKitTest extends TestCase
         self::assertTrue(RegularKit::isChinaTelecom('15319198888'));
         self::assertFalse(RegularKit::isChinaTelecom('18819198888'));
     }
+
+    public function testIsIpv4()
+    {
+        self::assertTrue(RegularKit::isIpv4('127.0.0.1'));
+        self::assertTrue(RegularKit::isIpv4('0.0.0.0'));
+        self::assertFalse(RegularKit::isIpv4('256.256.256.256'));
+    }
 }
