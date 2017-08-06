@@ -38,9 +38,9 @@ class CurlKit
     public $requestHeader = null;
 
     /**
-     * @var null
+     * @var array
      */
-    public $responseHeader = null;
+    public $responseHeader = [];
 
     /**
      * @var string
