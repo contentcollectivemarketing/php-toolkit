@@ -89,7 +89,7 @@ class NumberKit
             return $phone;
         }
 
-        return substr_replace($phone, $placeholder, 3, 4);
+        return (string)substr_replace($phone, $placeholder, 3, 4);
     }
 
     /**
