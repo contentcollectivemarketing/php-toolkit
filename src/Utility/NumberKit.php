@@ -150,7 +150,7 @@ class NumberKit
         $pow = 0;
         switch ($type) {
             case 2:
-                foreach ($units as $pow) {
+                foreach ($units as $pow => $val) {
                     if ($bytes >= $base) {
                         $bytes /= $base;
                         continue;
@@ -171,7 +171,7 @@ class NumberKit
                 $bytes /= $base ** $pow;
                 break;
         }
-        $unit = in_array($type, [1, 3], true) ? $units[$pow] : $pow;
+        $unit = $units[$pow];
 
         return round($bytes, $precision) . $delimiter . $unit;
     }
