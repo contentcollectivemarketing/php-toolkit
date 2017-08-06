@@ -103,9 +103,7 @@ class RegularKit
      */
     public static function get(string $key) : string
     {
-        if (isset(self::$patterns[$key])) {
-            return self::$patterns[$key];
-        }
+        return self::$patterns[$key] ?? '';
     }
 
     /**
