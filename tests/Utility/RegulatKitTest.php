@@ -7,6 +7,12 @@ use Toolkit\Utility\RegularKit;
 
 class RegulatKitTest extends TestCase
 {
+    public function testIsEmail()
+    {
+        self::assertTrue(RegularKit::isEmail('a_b90c-test.xyz@xyz-abc.com.cn'));
+        self::assertFalse(RegularKit::isEmail('.b@test.xyz'));
+    }
+
     public function testIsPhone()
     {
         self::assertTrue(RegularKit::isPhone('13319308888'));

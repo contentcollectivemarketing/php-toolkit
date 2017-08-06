@@ -109,6 +109,17 @@ class RegularKit
     }
 
     /**
+     * Verify the email address.
+     *
+     * @param string $email
+     * @return bool
+     */
+    public static function isEmail(string $email) : bool
+    {
+        return self::match(self::get('email'), $email);
+    }
+
+    /**
      * Verify the mobile phone number.
      *
      * @param string|int $phone
