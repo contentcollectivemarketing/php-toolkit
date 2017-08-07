@@ -82,7 +82,7 @@ class RegularKit
         /**
          * 腾讯 QQ
          */
-        'qq'       => '',
+        'qq'       => '/^[1-9][0-9]{4,10}$/',
 
         /**
          * 大陆座机电话号码
@@ -170,6 +170,17 @@ class RegularKit
     public static function isIdCard(string $idCard) : bool
     {
         return self::match(self::get('idcard'), $idCard);
+    }
+
+    /**
+     * Verify the qq number.
+     *
+     * @param int $qq
+     * @return bool
+     */
+    public static function isQq(int $qq) : bool
+    {
+        return self::match(self::get('qq'), $qq);
     }
 
     /**

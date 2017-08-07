@@ -48,6 +48,15 @@ class RegularKitTest extends TestCase
         self::assertFalse(RegularKit::isIdCard('10010022001818111X'));
     }
 
+    public function testIsQq()
+    {
+        self::assertTrue(RegularKit::isQq(11111));
+        self::assertTrue(RegularKit::isQq(22222222222));
+        self::assertFalse(RegularKit::isQq(012345));
+        self::assertFalse(RegularKit::isQq(1000));
+        self::assertFalse(RegularKit::isQq(123456789012));
+    }
+
     public function testIsIpv4()
     {
         self::assertTrue(RegularKit::isIpv4('127.0.0.1'));
