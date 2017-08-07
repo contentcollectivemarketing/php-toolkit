@@ -77,7 +77,7 @@ class RegularKit
         /**
          * 大陆身份证
          */
-        'idcard'   => '',
+        'idcard'   => '/^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/',
 
         /**
          * 腾讯 QQ
@@ -159,6 +159,17 @@ class RegularKit
     public static function isChinaTelecom($phone) : bool
     {
         return self::match(self::get('ct'), $phone);
+    }
+
+    /**
+     * Verify the identity card.
+     *
+     * @param string $idCard
+     * @return bool
+     */
+    public static function isIdCard(string $idCard) : bool
+    {
+        return self::match(self::get('idcard'), $idCard);
     }
 
     /**

@@ -5,7 +5,7 @@ namespace Toolkit\Test\Utility;
 use PHPUnit\Framework\TestCase;
 use Toolkit\Utility\RegularKit;
 
-class RegulatKitTest extends TestCase
+class RegularKitTest extends TestCase
 {
     public function testGet()
     {
@@ -40,6 +40,12 @@ class RegulatKitTest extends TestCase
     {
         self::assertTrue(RegularKit::isChinaTelecom('15319198888'));
         self::assertFalse(RegularKit::isChinaTelecom('18819198888'));
+    }
+
+    public function testIsIdCard()
+    {
+        self::assertTrue(RegularKit::isIdCard('43392330001231555X'));
+        self::assertFalse(RegularKit::isIdCard('10010022001818111X'));
     }
 
     public function testIsIpv4()
