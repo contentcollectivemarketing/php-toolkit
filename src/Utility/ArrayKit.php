@@ -13,9 +13,9 @@ class ArrayKit
     /**
      * Get an item from an array using key.
      *
-     * @param array $array
-     * @param mixed $key
-     * @param null  $default
+     * @param array      $array
+     * @param mixed      $key
+     * @param null|mixed $default
      * @return null|mixed
      */
     public static function get(array $array, $key, $default = null)
@@ -32,9 +32,9 @@ class ArrayKit
     /**
      * Set an array item to a given value using key.
      *
-     * @param array $array
-     * @param mixed $key
-     * @param null  $val
+     * @param array      $array
+     * @param mixed      $key
+     * @param null|mixed $val
      * @return array
      */
     public static function set(array & $array, $key, $val = null) : array
@@ -51,9 +51,9 @@ class ArrayKit
     /**
      * Add an array item to a given value using key.
      *
-     * @param array $array
-     * @param mixed $key
-     * @param null  $val
+     * @param array      $array
+     * @param mixed      $key
+     * @param null|mixed $val
      * @return array
      */
     public static function add(array $array, $key, $val = null) : array
@@ -68,10 +68,10 @@ class ArrayKit
     /**
      * Builds a map (key-value pairs) from a multidimensional array or an array of objects.
      *
-     * @param array  $array
-     * @param string $from
-     * @param string $to
-     * @param null   $group
+     * @param array      $array
+     * @param string     $from
+     * @param string     $to
+     * @param null|mixed $group
      * @return array
      */
     public static function map(array $array, string $from, string $to, $group = null) : array
