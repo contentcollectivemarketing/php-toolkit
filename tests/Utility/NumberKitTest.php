@@ -115,8 +115,8 @@ class NumberKitTest extends TestCase
         $expect = ['23.81 MB', '24 MB', '23.8061MB'];
         $actual = [
             NumberKit::toBytes(24962496),
-            NumberKit::toBytes(24962496, 0, ' ', 2),
-            NumberKit::toBytes(24962496, 4, '', 3),
+            NumberKit::toBytes(24962496, 0, ' ', 1),
+            NumberKit::toBytes(24962496, 4, '', 2),
 
         ];
         self::assertSame($expect, $actual);

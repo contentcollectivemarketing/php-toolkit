@@ -143,13 +143,13 @@ class NumberKit
         int $bytes,
         int $precision = 2,
         string $delimiter = ' ',
-        int $type = 1
+        int $type = 3
     ) : string {
         $units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
         $base = 1024;
         $pow = 0;
         switch ($type) {
-            case 2:
+            case 1:
                 foreach ($units as $pow => $val) {
                     if ($bytes >= $base) {
                         $bytes /= $base;
@@ -158,7 +158,7 @@ class NumberKit
                     break;
                 }
                 break;
-            case 3:
+            case 2:
                 for ($i = 0; $bytes >= $base && $i < 5; $i++) {
                     $bytes /= $base;
                     $pow++;
