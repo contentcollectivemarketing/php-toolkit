@@ -49,15 +49,12 @@ class NumberKit
                 // less than or equal
             case '>=':
                 // greater than or equal
-            case 'gte': // greater than or equal
+            case 'gte':
+                // greater than or equal
                 $flag = in_array($operator, ['>=', 'gte'], true);
-                if (self::compare($a, $b, $flag ? '>' : '<')
-                    || self::compare($a, $b)
-                ) {
-                    return true;
-                } else {
-                    return false;
-                }
+
+                return self::compare($a, $b, $flag ? '>' : '<')
+                    || self::compare($a, $b);
             case '<>':
                 // not equal
             case '!=':

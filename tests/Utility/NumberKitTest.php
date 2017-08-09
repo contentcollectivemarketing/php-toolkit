@@ -24,6 +24,7 @@ class NumberKitTest extends TestCase
             false,
             true,
             true,
+            true,
             true
         ];
         $actual = [
@@ -39,6 +40,7 @@ class NumberKitTest extends TestCase
             NumberKit::compare('0.01', '0.01', '>='),
             NumberKit::compare(false, false, 'gte'),
             NumberKit::compare(0.01, 0.0101, 'gte'),
+            NumberKit::compare(9.009, '9.009', 'gte'),
             NumberKit::compare(1, 2, '<>'),
             NumberKit::compare(true, false, '!='),
             NumberKit::compare(100, '100.01', 'ne')
