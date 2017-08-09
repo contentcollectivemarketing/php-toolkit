@@ -39,22 +39,22 @@ class NumberKit
                 // less than
             case 'lt':
                 return $func() ? false : $a < $b ? true : false;
-            case '<=':
-                // less than or equal
-            case 'lte':
-                if (self::compare($a, $b, '<') || self::compare($a, $b)) {
-                    return true;
-                } else {
-                    return false;
-                }
             case '>':
                 // greater than
             case 'gt':
                 return $func() ? false : $a > $b ? true : false;
+            case '<=':
+                // less than or equal
+            case 'lte':
+                // less than or equal
             case '>=':
                 // greater than or equal
             case 'gte':
-                if (self::compare($a, $b, '>') || self::compare($a, $b)) {
+                // greater than or equal
+                $flag = in_array($operator, ['>=', 'gte'], true);
+                if (self::compare($a, $b, $flag ? '>' : '<')
+                    || self::compare($a, $b)
+                ) {
                     return true;
                 } else {
                     return false;
