@@ -38,11 +38,11 @@ class NumberKit
             case '<':
                 // less than
             case 'lt':
-                return $func() ? false : $a < $b ? true : false;
+                return $func() ? false : $a < $b;
             case '>':
                 // greater than
             case 'gt':
-                return $func() ? false : $a > $b ? true : false;
+                return $func() ? false : $a > $b;
             case '<=':
                 // less than or equal
             case 'lte':
