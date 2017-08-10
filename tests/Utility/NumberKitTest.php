@@ -9,45 +9,23 @@ class NumberKitTest extends TestCase
 {
     public function testCompare()
     {
-        $expect = [
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            false,
-            true,
-            false,
-            true,
-            true,
-            true,
-            false,
-            true,
-            true,
-            true,
-            true
-        ];
-        $actual = [
-            NumberKit::compare(4, 4),
-            NumberKit::compare(5, 5, 'eq'),
-            NumberKit::compare(3.00, 3.001, '<'),
-            NumberKit::compare(0.00001, 0.0001, 'lt'),
-            NumberKit::compare(2.9966, 2.9966, '<='),
-            NumberKit::compare(0.9966, 0.9966, 'lte'),
-            NumberKit::compare(8.009, 8.007, 'lte'),
-            NumberKit::compare('99.00002', '99.00001', '>'),
-            NumberKit::compare(23.23, 24.24, '>'),
-            NumberKit::compare(true, false, 'gt'),
-            NumberKit::compare('0.01', '0.01', '>='),
-            NumberKit::compare(false, false, 'gte'),
-            NumberKit::compare(0.01, 0.0101, 'gte'),
-            NumberKit::compare(9.009, '9.009', 'gte'),
-            NumberKit::compare(1, 2, '<>'),
-            NumberKit::compare(true, false, '!='),
-            NumberKit::compare(100, '100.01', 'ne')
-        ];
-        self::assertSame($expect, $actual);
+        self::assertTrue(NumberKit::compare(4, 4));
+        self::assertTrue(NumberKit::compare(5, 5, 'eq'));
+        self::assertTrue(NumberKit::compare(3.00, 3.001, '<'));
+        self::assertTrue(NumberKit::compare(0.00001, 0.0001, 'lt'));
+        self::assertTrue(NumberKit::compare(2.9966, 2.9966, '<='));
+        self::assertTrue(NumberKit::compare(0.9966, 0.9966, 'lte'));
+        self::assertFalse(NumberKit::compare(8.009, 8.007, 'lte'));
+        self::assertTrue(NumberKit::compare('99.00002', '99.00001', '>'));
+        self::assertFalse(NumberKit::compare(23.23, 24.24, '>'));
+        self::assertTrue(NumberKit::compare(true, false, 'gt'));
+        self::assertTrue(NumberKit::compare('0.01', '0.01', '>='));
+        self::assertTrue(NumberKit::compare(false, false, 'gte'));
+        self::assertFalse(NumberKit::compare(0.01, 0.0101, 'gte'));
+        self::assertTrue(NumberKit::compare(9.009, '9.009', 'gte'));
+        self::assertTrue(NumberKit::compare(1, 2, '<>'));
+        self::assertTrue(NumberKit::compare(true, false, '!='));
+        self::assertTrue(NumberKit::compare(100, '100.01', 'ne'));
     }
 
     /**
