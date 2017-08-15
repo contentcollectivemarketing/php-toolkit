@@ -7,6 +7,9 @@ use Toolkit\Utility\CurlKit;
 
 class CurlKitTest extends TestCase
 {
+    /**
+     * This is the remote script request path.
+     */
     const TEST_URI = 'http://testing.duapp.com/server.php';
 
     protected $Curl;
