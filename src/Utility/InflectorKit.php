@@ -5,14 +5,17 @@ namespace Toolkit\Utility;
 /**
  * Class InflectorKit
  *
- * @copyright Copyright (c) 2012-2017, XiaoHe Software Foundation, Inc. (http://www.baonahao.com/)
- * @package   Toolkit\Utility
- * @date      2017-08-18 21:27
- * @author    majinyun <majinyun@xiaohe.com>
+ * @package Toolkit\Utility
  */
 class InflectorKit
 {
-    public static function camelize(string $string)
+    /**
+     * Returns the input string as a camelCasedString.
+     *
+     * @param string $string
+     * @return string
+     */
+    public static function camelize(string $string) : string
     {
 
         $subject = ucwords(preg_replace('/[\s_]+/', ' ', $string));
