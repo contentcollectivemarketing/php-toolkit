@@ -111,7 +111,7 @@ class NumberKit
      */
     public static function toMoney($money, int $precision = 2) : string
     {
-        setlocale(LC_ALL, 'zh_CN.UTF-8');
+        setlocale(LC_ALL, 'zh.UTF-8');
         $format = '%.' . $precision . 'n';
 
         return money_format($format, $money);
