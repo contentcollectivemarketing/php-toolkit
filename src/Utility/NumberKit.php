@@ -140,33 +140,22 @@ class NumberKit
         int $bytes,
         int $precision = 2,
         string $delimiter = ' ',
-        int $type = 3
+        int $type = 1
     ) : string {
         $units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
         $base = 1024;
         $pow = 0;
-        switch ($type) {
-            case 1:
-                foreach ($units as $pow => $val) {
-                    if ($bytes >= $base) {
-                        $bytes /= $base;
-                        continue;
-                    }
-                    break;
-                }
-                break;
-            case 2:
-                for ($i = 0; $bytes >= $base && $i < 5; $i++) {
-                    $bytes /= $base;
-                    $pow++;
-                }
-                break;
-            default:
-                $bytes = max($bytes, 0);
-                $pow = floor(($bytes ? log($bytes) : 0) / log($base));
-                $pow = min($pow, count($units) - 1);
-                $bytes /= $base ** $pow;
-                break;
+
+        if ($type === 1) {
+            $bytes = max($bytes, 0);
+            $pow = floor(($bytes ? log($bytes) : 0) / log($base));
+            $pow = min($pow, count($units) - 1);
+            $bytes /= $base ** $pow;
+        } else {
+            for ($i = 0; $bytes >= $base && $i < 5; $i++) {
+                $bytes /= $base;
+                $pow++;
+            }
         }
         $unit = $units[$pow];
 
