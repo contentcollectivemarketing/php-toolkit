@@ -9,9 +9,9 @@ class InflectorKitTest extends TestCase
 {
     public function testCamelize()
     {
-        $a = InflectorKit::camelize('hello World Hello Php');
-        $b = InflectorKit::camelize('hello_world_hello_php');
-        $c = InflectorKit::camelize('hello world_hello php');
+        $a = 'hello World Hello Php';
+        $b = 'hello_world_hello_php';
+        $c = 'hello world_hello php';
         $expect = [
             'helloWorldHelloPhp',
             'helloWorldHelloPhp',
@@ -23,6 +23,20 @@ class InflectorKitTest extends TestCase
             InflectorKit::camelize($c)
         ];
 
+        self::assertEquals($expect, $actual);
+    }
+
+    public function testHumanize()
+    {
+        $a = InflectorKit::humanize('this_is_a_test_script');
+        $b = InflectorKit::humanize('this*is*my*test*script', '*');
+        $c = InflectorKit::humanize('Hello Everybody');
+        $expect = [
+            'this is a test script',
+            'this is my test script',
+            'hello everybody'
+        ];
+        $actual = [$a, $b, $c];
         self::assertEquals($expect, $actual);
     }
 }
