@@ -9,6 +9,8 @@ namespace Toolkit\Utility;
  */
 class NumberKit
 {
+    const EPSILON = 0.00001;
+
     /**
      * Compare floating point numbers.
      *
@@ -20,14 +22,13 @@ class NumberKit
      */
     public static function compare($a, $b, string $operator = '=') : bool
     {
-        $epsilon = 0.00001;
         $a = (float)$a;
         $b = (float)$b;
 
-        $func = function ($type = false) use ($a, $b, $epsilon) {
+        $func = function ($type = false) use ($a, $b) {
             $value = abs($a - $b);
 
-            return $type ? $value > $epsilon : $value < $epsilon;
+            return $type ? $value > self::EPSILON : $value < self::EPSILON;
         };
 
         switch ($operator) {
