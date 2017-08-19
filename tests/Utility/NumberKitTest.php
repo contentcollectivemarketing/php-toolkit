@@ -80,14 +80,14 @@ class NumberKitTest extends TestCase
             '￥99.99',
             '￥0.4444',
             '￥99.45',
-            '￥100.00'
+            '￥1,000,000.00',
         ];
         $actual = [
             NumberKit::toMoney(9999999999),
             NumberKit::toMoney(99.99),
             NumberKit::toMoney(0.444444445, 4),
             NumberKit::toMoney(99.4456789),
-            NumberKit::toMoney(99.9956789)
+            NumberKit::toMoney(999999.9956789),
         ];
         self::assertSame($expect, $actual);
     }
