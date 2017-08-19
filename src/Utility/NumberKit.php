@@ -51,7 +51,6 @@ class NumberKit
             case '>=':
                 // greater than or equal
             case 'gte':
-                // greater than or equal
                 $flag = in_array($operator, ['>=', 'gte'], true);
 
                 return self::compare($a, $b, $flag ? '>' : '<')
