@@ -7,6 +7,40 @@ use Toolkit\Utility\InflectorKit;
 
 class InflectorKitTest extends TestCase
 {
+    public function testPluralize()
+    {
+        $expect = [
+            'children',
+            'women',
+            'oxen',
+            'queries',
+        ];
+        $actual = [
+            InflectorKit::pluralize('child'),
+            InflectorKit::pluralize('woman'),
+            InflectorKit::pluralize('ox'),
+            InflectorKit::pluralize('query'),
+        ];
+        self::assertSame($expect, $actual);
+    }
+
+    public function testSingularize()
+    {
+        $expect = [
+            'apple',
+            'child',
+            'sex',
+            'man',
+        ];
+        $actual = [
+            InflectorKit::singularize('apples'),
+            InflectorKit::singularize('children'),
+            InflectorKit::singularize('sexes'),
+            InflectorKit::singularize('men'),
+        ];
+        self::assertSame($expect, $actual);
+    }
+
     public function testCamelize()
     {
         $a = 'hello World Hello Php';
@@ -37,6 +71,19 @@ class InflectorKitTest extends TestCase
             InflectorKit::humanize('this_is_a_test_script'),
             InflectorKit::humanize('this*is*my*test*script', '*'),
             InflectorKit::humanize('Hello Everybody')
+        ];
+        self::assertSame($expect, $actual);
+    }
+
+    public function testClassify()
+    {
+        $expect = [
+            'product',
+            'user',
+        ];
+        $actual = [
+            InflectorKit::classify('Products'),
+            InflectorKit::classify('Users'),
         ];
         self::assertSame($expect, $actual);
     }
