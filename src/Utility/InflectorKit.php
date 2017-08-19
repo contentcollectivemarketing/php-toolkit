@@ -251,11 +251,11 @@ class InflectorKit
      */
     public static function pluralize(string $word) : string
     {
-        if (isset(static::$irregular[$word])) {
-            return static::$irregular[$word];
+        if (isset(self::$irregular[$word])) {
+            return self::$irregular[$word];
         }
 
-        foreach (static::$plural as $pattern => $replacement) {
+        foreach (self::$plural as $pattern => $replacement) {
             if (preg_match($pattern, $word)) {
                 $word = preg_replace($pattern, $replacement, $word);
                 break;
@@ -273,13 +273,13 @@ class InflectorKit
      */
     public static function singularize(string $word)
     {
-        $result = array_search($word, static::$irregular, true);
+        $result = array_search($word, self::$irregular, true);
 
         if ($result !== false) {
             return $result;
         }
 
-        foreach (static::$singular as $pattern => $replacement) {
+        foreach (self::$singular as $pattern => $replacement) {
             if (preg_match($pattern, $word)) {
                 $word = preg_replace($pattern, $replacement, $word);
                 break;
@@ -329,6 +329,6 @@ class InflectorKit
      */
     public static function classify(string $word) : string
     {
-        return static::camelize(static::singularize($word));
+        return self::camelize(self::singularize($word));
     }
 }
