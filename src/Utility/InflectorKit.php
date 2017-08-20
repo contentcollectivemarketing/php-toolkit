@@ -329,4 +329,38 @@ class InflectorKit
     {
         return self::camelize(self::singularize($word));
     }
+
+    /**
+     * Converts any "CameCased" into an "lower_case_delimited_string"
+     *
+     * @param string $string
+     * @param string $delimiter
+     * @return string
+     */
+    public static function delimit(string $string, string $delimiter = '_') : string
+    {
+        return mb_strtolower(preg_replace('/(?<=\\w)([A-Z])/', $delimiter . '\\1', $string));
+    }
+
+    /**
+     * Converts any "CamelCased" into an "underscored_word".
+     *
+     * @param string $string
+     * @return string
+     */
+    public static function underscore(string $string) : string
+    {
+        return self::delimit(str_replace('-', '_', $string), '_');
+    }
+
+    /**
+     * Converts a class name to its table name (pluralized) naming conventions.
+     *
+     * @param string $table
+     * @return string
+     */
+    public static function tableize(string $table) : string
+    {
+        return self::pluralize(self::underscore($table));
+    }
 }

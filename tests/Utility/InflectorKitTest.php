@@ -89,4 +89,30 @@ class InflectorKitTest extends TestCase
         ];
         self::assertSame($expect, $actual);
     }
+
+    public function testDelimit()
+    {
+        $expect = [
+            'to_upper_case',
+            'to|lower|case',
+        ];
+        $actual = [
+            InflectorKit::delimit('ToUpperCase'),
+            InflectorKit::delimit('ToLowerCase', '|')
+        ];
+        self::assertSame($expect, $actual);
+    }
+
+    public function testUnderscore()
+    {
+        $expect = [
+            'object_to_array',
+            'string_to_array',
+        ];
+        $actual = [
+            InflectorKit::underscore('objectToArray'),
+            InflectorKit::underscore('stringToArray'),
+        ];
+        self::assertSame($expect, $actual);
+    }
 }
