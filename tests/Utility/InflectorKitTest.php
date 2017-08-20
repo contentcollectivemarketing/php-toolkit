@@ -116,6 +116,19 @@ class InflectorKitTest extends TestCase
         self::assertSame($expect, $actual);
     }
 
+    public function testDasherize()
+    {
+        $expect = [
+            'array-to-string',
+            'system-settings',
+        ];
+        $actual = [
+            InflectorKit::dasherize('ArrayToString'),
+            InflectorKit::dasherize('system_settings'),
+        ];
+        self::assertSame($expect, $actual);
+    }
+
     public function testTableize()
     {
         $expect = [

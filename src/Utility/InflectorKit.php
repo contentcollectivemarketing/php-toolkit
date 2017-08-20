@@ -343,7 +343,7 @@ class InflectorKit
     }
 
     /**
-     * Converts any "CamelCased" into an "underscored_word".
+     * Converts any "CamelCasedString" into an "underscored_string".
      *
      * @param string $string
      * @return string
@@ -351,6 +351,17 @@ class InflectorKit
     public static function underscore(string $string) : string
     {
         return self::delimit(str_replace('-', '_', $string), '_');
+    }
+
+    /**
+     * Converts any "CamelCasedString" into as an "dashed-string".
+     *
+     * @param string $string
+     * @return string
+     */
+    public static function dasherize(string $string) : string
+    {
+        return self::delimit(str_replace('_', '-', $string), '-');
     }
 
     /**
