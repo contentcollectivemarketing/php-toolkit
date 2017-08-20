@@ -47,9 +47,9 @@ class InflectorKitTest extends TestCase
         $b = 'hello_world_hello_php';
         $c = 'Replace Temp with Query';
         $expect = [
-            'helloWorldHelloPhp',
-            'helloWorldHelloPhp',
-            'replaceTempWithQuery',
+            'HelloWorldHelloPhp',
+            'HelloWorldHelloPhp',
+            'ReplaceTempWithQuery',
         ];
         $actual = [
             InflectorKit::camelize($a),
@@ -63,9 +63,9 @@ class InflectorKitTest extends TestCase
     public function testHumanize()
     {
         $expect = [
-            'this is a test script',
-            'this is my test script',
-            'hello everybody'
+            'This Is A Test Script',
+            'This Is My Test Script',
+            'Hello Everybody'
         ];
         $actual = [
             InflectorKit::humanize('this_is_a_test_script'),
@@ -78,12 +78,14 @@ class InflectorKitTest extends TestCase
     public function testClassify()
     {
         $expect = [
-            'product',
-            'user',
+            'SystemSetting',
+            'User',
+            'UserProfileSetting',
         ];
         $actual = [
-            InflectorKit::classify('Products'),
+            InflectorKit::classify('system_settings'),
             InflectorKit::classify('Users'),
+            InflectorKit::classify('user_profile_settings'),
         ];
         self::assertSame($expect, $actual);
     }
