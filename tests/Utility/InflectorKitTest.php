@@ -115,4 +115,32 @@ class InflectorKitTest extends TestCase
         ];
         self::assertSame($expect, $actual);
     }
+
+    public function testTableize()
+    {
+        $expect = [
+            'products',
+            'user_profile_settings',
+        ];
+        $actual = [
+            InflectorKit::tableize('Product'),
+            InflectorKit::tableize('UserProfileSetting'),
+        ];
+        self::assertSame($expect, $actual);
+    }
+
+    public function testVariable()
+    {
+        $expect = [
+            'userProfile',
+            'curl_helper',
+            'usePHPVariableToQuery',
+        ];
+        $actual = [
+            InflectorKit::variable('UserProfile'),
+            InflectorKit::variable('curl_helper'),
+            InflectorKit::variable('UsePHPVariableToQuery'),
+        ];
+        self::assertSame($expect, $actual);
+    }
 }

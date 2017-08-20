@@ -363,4 +363,17 @@ class InflectorKit
     {
         return self::pluralize(self::underscore($table));
     }
+
+    /**
+     * Returns camelBacked version of an underscored string.
+     *
+     * @param string $string
+     * @return string
+     */
+    public static function variable(string $string) : string
+    {
+        $variable = self::camelize(self::underscore($string));
+
+        return strtolower($variable[0]) . substr($string, 1);
+    }
 }
