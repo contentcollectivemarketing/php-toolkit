@@ -146,12 +146,12 @@ class InflectorKitTest extends TestCase
     {
         $expect = [
             'userProfile',
-            'curl_helper',
+            'curl_Helper',
             'usePHPVariableToQuery',
         ];
         $actual = [
             InflectorKit::variable('UserProfile'),
-            InflectorKit::variable('curl_helper'),
+            InflectorKit::variable('Curl_Helper'),
             InflectorKit::variable('UsePHPVariableToQuery'),
         ];
         self::assertSame($expect, $actual);
