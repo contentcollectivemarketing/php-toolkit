@@ -108,9 +108,9 @@ class NumberKit
      * @param int   $precision
      * @return string
      */
-    public static function toMoney($money, int $precision = 2) : string
+    public static function toRmb($money, int $precision = 2) : string
     {
-        setlocale(LC_ALL, 'zh_CN.UTF-8');
+        setlocale(LC_MONETARY, 'zh_CN.UTF-8');
         $format = '%.' . $precision . 'n';
 
         return money_format($format, $money);

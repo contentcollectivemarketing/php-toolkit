@@ -73,7 +73,7 @@ class NumberKitTest extends TestCase
         self::assertSame($expect, $actual);
     }
 
-    public function testToMoney()
+    public function testToRmb()
     {
         $expect = [
             '￥9,999,999,999.00',
@@ -83,11 +83,11 @@ class NumberKitTest extends TestCase
             '￥1,000,000.00',
         ];
         $actual = [
-            NumberKit::toMoney(9999999999),
-            NumberKit::toMoney(99.99),
-            NumberKit::toMoney(0.444444445, 4),
-            NumberKit::toMoney(99.4456789),
-            NumberKit::toMoney(999999.9956789),
+            NumberKit::toRmb(9999999999),
+            NumberKit::toRmb(99.99),
+            NumberKit::toRmb(0.444444445, 4),
+            NumberKit::toRmb(99.4456789),
+            NumberKit::toRmb(999999.9956789),
         ];
         self::assertSame($expect, $actual);
     }
