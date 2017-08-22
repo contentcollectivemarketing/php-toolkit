@@ -76,8 +76,8 @@ class NumberKitTest extends TestCase
     public function testToDecimal()
     {
         $expect = [
-            '￥9,999,999,999.00',
-            '￥100.0',
+            '￥ 9,999,999,999.00',
+            '￥ 100.0',
             '￥0.4444',
             '￥99.45',
             '￥999,999.996',
