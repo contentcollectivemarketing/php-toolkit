@@ -148,14 +148,16 @@ class NumberKit
     {
         $formatter = new \NumberFormatter(
             $currency,
-            \NumberFormatter::DECIMAL
+            \NumberFormatter::CURRENCY
         );
         $formatter->setAttribute(
             \NumberFormatter::FRACTION_DIGITS,
             $precision
         );
+        $value = (string)$formatter->format($money);
+        $value = str_replace("\x20", "\xC2\xA0", $value);
 
-        return $formatter->format($money);
+        return $value;
     }
 
     /**
