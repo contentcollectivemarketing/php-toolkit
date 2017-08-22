@@ -148,7 +148,7 @@ class NumberKit
     {
         $formatter = new \NumberFormatter(
             $currency,
-            \NumberFormatter::CURRENCY
+            \NumberFormatter::DECIMAL
         );
 
         if ($precision < 2) {
