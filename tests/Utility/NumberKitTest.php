@@ -76,11 +76,11 @@ class NumberKitTest extends TestCase
     public function testToCurrency()
     {
         $expect = [
-            '￥ 9,999,999,999.00',
-            '￥ 99.99',
-            '￥ 0.4444',
-            '￥ 99.45',
-            '￥ 1,000,000.00',
+            '￥9,999,999,999.00',
+            '￥99.99',
+            '￥0.4444',
+            '￥99.45',
+            '￥1,000,000.00',
             '$8,888.8889',
             '4.444,44445 €',
         ];
@@ -93,7 +93,7 @@ class NumberKitTest extends TestCase
             NumberKit::toCurrency(8888.8888999, 4, 'en-US'),
             NumberKit::toCurrency(4444.4444455555, 5, 'it-IT'),
         ];
-        self::assertSame($expect, $actual);
+        self::assertEquals($expect, $actual);
     }
 
     public function testToBytes()
