@@ -12,6 +12,41 @@ class NumberKit
     const EPSILON = 0.00001;
 
     /**
+     * Currency Formats.
+     *
+     * @var array
+     */
+    private static $currencies = [
+        'CNY' => [
+            'code'              => 'CNY',
+            'title'             => 'China Yuan Renminbi',
+            'symbol'            => 'CN¥',
+            'precision'         => 2,
+            'thousandSeparator' => ',',
+            'decimalSeparator'  => '.',
+            'symbolPlacement'   => 'before'
+        ],
+        'EUR' => [
+            'code'              => 'EUR',
+            'title'             => 'Euro',
+            'symbol'            => ' €',
+            'precision'         => 2,
+            'thousandSeparator' => '.',
+            'decimalSeparator'  => ',',
+            'symbolPlacement'   => 'after'
+        ],
+        'USD' => [
+            'code'              => 'USD',
+            'title'             => 'US Dollar',
+            'symbol'            => '$',
+            'precision'         => 2,
+            'thousandSeparator' => ',',
+            'decimalSeparator'  => '.',
+            'symbolPlacement'   => 'before'
+        ],
+    ];
+
+    /**
      * Compare floating point numbers.
      *
      * @param mixed  $a
@@ -102,18 +137,37 @@ class NumberKit
     }
 
     /**
-     * Format number to RMB forms.
+     * Format number to currency forms.
      *
-     * @param mixed $money
-     * @param int   $precision
+     * @param mixed  $money
+     * @param int    $precision
+     * @param string $currency
      * @return string
      */
-    public static function toRmb($money, int $precision = 2) : string
+    public static function toCurrency(float $money, int $precision = 2, string $currency = 'zh-CN') : string
     {
-        setlocale(LC_MONETARY, 'zh_CN.UTF-8');
-        $format = '%.' . $precision . 'n';
+        $formatter = new \NumberFormatter(
+            $currency,
+            \NumberFormatter::CURRENCY
+        );
 
-        return money_format($format, $money);
+        if ($precision < 2) {
+            $formatter->setAttribute(
+                \NumberFormatter::MIN_FRACTION_DIGITS,
+                2
+            );
+        } else {
+            $formatter->setAttribute(
+                \NumberFormatter::MIN_FRACTION_DIGITS,
+                2
+            );
+            $formatter->setAttribute(
+                \NumberFormatter::MAX_FRACTION_DIGITS,
+                $precision
+            );
+        }
+
+        return $formatter->format($money);
     }
 
     /**
