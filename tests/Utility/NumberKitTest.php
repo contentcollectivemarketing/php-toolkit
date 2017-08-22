@@ -76,8 +76,8 @@ class NumberKitTest extends TestCase
     public function testToCurrency()
     {
         $expect = [
-            '¥9,999,999,999.00',
-            '¥99.99',
+            '￥9,999,999,999.00',
+            '¥ 99.99',
             '¥0.4444',
             '¥99.45',
             '¥1,000,000.00',
