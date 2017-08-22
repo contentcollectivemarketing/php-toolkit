@@ -137,35 +137,23 @@ class NumberKit
     }
 
     /**
-     * Format number to currency forms.
+     * Format number to decimal forms.
      *
-     * @param mixed  $money
+     * @param float  $money
      * @param int    $precision
      * @param string $currency
      * @return string
      */
-    public static function toCurrency(float $money, int $precision = 2, string $currency = 'zh-CN') : string
+    public static function toDecimal(float $money, int $precision = 2, string $currency = 'zh-CN') : string
     {
         $formatter = new \NumberFormatter(
             $currency,
             \NumberFormatter::DECIMAL
         );
-
-        if ($precision < 2) {
-            $formatter->setAttribute(
-                \NumberFormatter::MIN_FRACTION_DIGITS,
-                2
-            );
-        } else {
-            $formatter->setAttribute(
-                \NumberFormatter::MIN_FRACTION_DIGITS,
-                2
-            );
-            $formatter->setAttribute(
-                \NumberFormatter::MAX_FRACTION_DIGITS,
-                $precision
-            );
-        }
+        $formatter->setAttribute(
+            \NumberFormatter::FRACTION_DIGITS,
+            $precision
+        );
 
         return $formatter->format($money);
     }

@@ -73,11 +73,11 @@ class NumberKitTest extends TestCase
         self::assertSame($expect, $actual);
     }
 
-    public function testToCurrency()
+    public function testToDecimal()
     {
         $expect = [
             '9,999,999,999.00',
-            '99.99',
+            '100.0',
             '0.4444',
             '99.45',
             '999,999.996',
@@ -85,13 +85,13 @@ class NumberKitTest extends TestCase
             '4.444,44445',
         ];
         $actual = [
-            NumberKit::toCurrency(9999999999),
-            NumberKit::toCurrency(99.99, 1),
-            NumberKit::toCurrency(0.444444445, 4),
-            NumberKit::toCurrency(99.4456789),
-            NumberKit::toCurrency(999999.9956789, 3),
-            NumberKit::toCurrency(8888.8888999, 4, 'en-US'),
-            NumberKit::toCurrency(4444.4444455555, 5, 'it-IT'),
+            NumberKit::toDecimal(9999999999),
+            NumberKit::toDecimal(99.99, 1),
+            NumberKit::toDecimal(0.444444445, 4),
+            NumberKit::toDecimal(99.4456789),
+            NumberKit::toDecimal(999999.9956789, 3),
+            NumberKit::toDecimal(8888.8888999, 4, 'en-US'),
+            NumberKit::toDecimal(4444.4444455555, 5, 'it-IT'),
         ];
         self::assertEquals($expect, $actual);
     }
