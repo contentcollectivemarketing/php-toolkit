@@ -76,20 +76,20 @@ class NumberKitTest extends TestCase
     public function testToDecimal()
     {
         $expect = [
-            '￥ 9,999,999,999.00',
-            '￥ 100.0',
-            '￥ 0.4444',
-            '￥ 99.45',
-            '￥ 999,999.996',
-            '$8,888.8889',
-            '4.444,44445 €',
+            '9,999,999,999.00',
+            '100.0',
+            '0.4444',
+            '99.45',
+            '999 999,996',
+            '8,888.8889',
+            '4.444,44445',
         ];
         $actual = [
             NumberKit::toDecimal(9999999999),
             NumberKit::toDecimal(99.99, 1),
             NumberKit::toDecimal(0.444444445, 4),
             NumberKit::toDecimal(99.4456789),
-            NumberKit::toDecimal(999999.9956789, 3),
+            NumberKit::toDecimal(999999.9956789, 3, 'fr_FR'),
             NumberKit::toDecimal(8888.8888999, 4, 'en-US'),
             NumberKit::toDecimal(4444.4444455555, 5, 'it-IT'),
         ];

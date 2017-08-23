@@ -139,6 +139,12 @@ class NumberKit
     /**
      * Format number to decimal forms.
      *
+     * - white space and non breaking space question
+     *
+     * ```php
+     * $value = str_replace("\x20", "\xC2\xA0", $value);
+     * ```
+     *
      * @param float  $money
      * @param int    $precision
      * @param string $currency
@@ -148,14 +154,13 @@ class NumberKit
     {
         $formatter = new \NumberFormatter(
             $currency,
-            \NumberFormatter::CURRENCY
+            \NumberFormatter::DECIMAL
         );
         $formatter->setAttribute(
             \NumberFormatter::FRACTION_DIGITS,
             $precision
         );
-        $value = (string)$formatter->format($money);
-        $value = str_replace("\x20", "\xC2\xA0", $value);
+        $value = $formatter->format($money);
 
         return $value;
     }
