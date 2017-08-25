@@ -2,6 +2,8 @@
 
 namespace Toolkit\Utility;
 
+use NumberFormatter;
+
 /**
  * Class NumKit
  *
@@ -115,12 +117,12 @@ class NumberKit
         int $precision = 2,
         string $currency = 'zh-CN'
     ) : string {
-        $formatter = new \NumberFormatter(
+        $formatter = new NumberFormatter(
             $currency,
-            \NumberFormatter::DECIMAL
+            NumberFormatter::DECIMAL
         );
         $formatter->setAttribute(
-            \NumberFormatter::FRACTION_DIGITS,
+            NumberFormatter::FRACTION_DIGITS,
             $precision
         );
         $value = $formatter->format($money);
