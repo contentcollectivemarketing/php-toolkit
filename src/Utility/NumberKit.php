@@ -14,36 +14,27 @@ class NumberKit
     /**
      * Compare floating point numbers.
      *
-     * @param mixed  $a
-     * @param mixed  $b
+     * @param float  $a
+     * @param float  $b
      * @param string $operator
      * @return bool
      * @throws \InvalidArgumentException
      */
-    public static function compare($a, $b, string $operator = '=') : bool
+    public static function compare(float $a, float $b, string $operator = '=') : bool
     {
-        $a = (float)$a;
-        $b = (float)$b;
-
-        $func = function ($type = false) use ($a, $b) {
-            $value = abs($a - $b);
-
-            return $type ? $value > self::EPSILON : $value < self::EPSILON;
-        };
-
         switch ($operator) {
             case '=':
                 // equal
             case 'eq':
-                return $func();
+                return self::epsilon($a, $b);
             case '<':
                 // less than
             case 'lt':
-                return $func() ? false : $a < $b;
+                return self::epsilon($a, $b) ? false : $a < $b;
             case '>':
                 // greater than
             case 'gt':
-                return $func() ? false : $a > $b;
+                return self::epsilon($a, $b) ? false : $a > $b;
             case '<=':
                 // less than or equal
             case 'lte':
@@ -60,7 +51,7 @@ class NumberKit
             case '!=':
                 // not equal
             case 'ne':
-                return $func(true) ? true : false;
+                return self::epsilon($a, $b, true) ? true : false;
             default:
                 throw new \InvalidArgumentException('Invalid operator.');
         }
@@ -180,5 +171,18 @@ class NumberKit
         $unit = $units[$pow];
 
         return round($bytes, $precision) . $delimiter . $unit;
+    }
+
+    /**
+     * @param float $a
+     * @param float $b
+     * @param bool  $flag
+     * @return bool
+     */
+    private static function epsilon(float $a, float $b, $flag = false)
+    {
+        $value = abs($a - $b);
+
+        return $flag ? $value > self::EPSILON : $value < self::EPSILON;
     }
 }
