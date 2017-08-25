@@ -12,41 +12,6 @@ class NumberKit
     const EPSILON = 0.00001;
 
     /**
-     * Currency Formats.
-     *
-     * @var array
-     */
-    private static $currencies = [
-        'CNY' => [
-            'code'              => 'CNY',
-            'title'             => 'China Yuan Renminbi',
-            'symbol'            => 'CN¥',
-            'precision'         => 2,
-            'thousandSeparator' => ',',
-            'decimalSeparator'  => '.',
-            'symbolPlacement'   => 'before'
-        ],
-        'EUR' => [
-            'code'              => 'EUR',
-            'title'             => 'Euro',
-            'symbol'            => ' €',
-            'precision'         => 2,
-            'thousandSeparator' => '.',
-            'decimalSeparator'  => ',',
-            'symbolPlacement'   => 'after'
-        ],
-        'USD' => [
-            'code'              => 'USD',
-            'title'             => 'US Dollar',
-            'symbol'            => '$',
-            'precision'         => 2,
-            'thousandSeparator' => ',',
-            'decimalSeparator'  => '.',
-            'symbolPlacement'   => 'before'
-        ],
-    ];
-
-    /**
      * Compare floating point numbers.
      *
      * @param mixed  $a
@@ -126,13 +91,16 @@ class NumberKit
     /**
      * Format a number with grouped thousands.
      *
-     * @param mixed  $number
+     * @param float  $number
      * @param int    $decimal
      * @param string $point
      * @return string
      */
-    public static function toNumber($number, int $decimal = 2, string $point = '.') : string
-    {
+    public static function toNumber(
+        float $number,
+        int $decimal = 2,
+        string $point = '.'
+    ) : string {
         return number_format($number, $decimal, $point, '');
     }
 
@@ -149,9 +117,13 @@ class NumberKit
      * @param int    $precision
      * @param string $currency
      * @return string
+     * @see http://dwz.cn/6q4xWs
      */
-    public static function toDecimal(float $money, int $precision = 2, string $currency = 'zh-CN') : string
-    {
+    public static function toDecimal(
+        float $money,
+        int $precision = 2,
+        string $currency = 'zh-CN'
+    ) : string {
         $formatter = new \NumberFormatter(
             $currency,
             \NumberFormatter::DECIMAL
