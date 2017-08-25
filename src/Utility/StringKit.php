@@ -10,6 +10,28 @@ namespace Toolkit\Utility;
 class StringKit
 {
     /**
+     * Make a string uppercase.
+     *
+     * @param string $string
+     * @return string
+     */
+    public static function toUpper(string $string) : string
+    {
+        return strtoupper($string);
+    }
+
+    /**
+     * Make a string lowercase.
+     *
+     * @param string $string
+     * @return string
+     */
+    public static function toLower(string $string) : string
+    {
+        return strtolower($string);
+    }
+
+    /**
      * Get string length.
      *
      * @param string $string

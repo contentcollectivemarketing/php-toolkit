@@ -14,6 +14,20 @@ class StringKitTest extends TestCase
         $this->string = '我是中国人，我来自伟大的中华人民共和国，一个神奇的国度。';
     }
 
+    public function testToUpper()
+    {
+        $expect = 'HELLO WORLD!';
+        $actual = StringKit::toUpper('hello world!');
+        self::assertEquals($expect, $actual);
+    }
+
+    public function testToLower()
+    {
+        $expect = 'this is a string.';
+        $actual = StringKit::toLower('THIS IS A STRING.');
+        self::assertEquals($expect, $actual);
+    }
+
     public function testLengthString()
     {
         $actual = StringKit::length($this->string);
