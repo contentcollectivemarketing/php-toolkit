@@ -7,7 +7,7 @@ namespace Toolkit\Utility;
  *
  * @package Toolkit\Utility
  */
-class TextKit
+class Text
 {
     /**
      * Generate a random UUID.

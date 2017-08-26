@@ -3,13 +3,13 @@
 namespace Toolkit\Test\Utility;
 
 use PHPUnit\Framework\TestCase;
-use Toolkit\Utility\TextKit;
+use Toolkit\Utility\Text;
 
-class TextKitTest extends TestCase
+class TextTest extends TestCase
 {
     public function testUuid()
     {
-        $uuid = TextKit::uuid();
+        $uuid = Text::uuid();
 
         self::assertEquals(36, strlen($uuid));
     }

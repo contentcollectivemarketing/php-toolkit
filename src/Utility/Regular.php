@@ -3,11 +3,11 @@
 namespace Toolkit\Utility;
 
 /**
- * Class RegularKit
+ * Class Regular
  *
  * @package Toolkit\Utility
  */
-class RegularKit
+class Regular
 {
     /**
      * Regular expression.

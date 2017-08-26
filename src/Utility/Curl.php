@@ -3,12 +3,12 @@
 namespace Toolkit\Utility;
 
 /**
- * Class CurlKit
+ * Class Curl
  *
  * @package Toolkit\Utility
  * @link    https://github.com/php-mod/curl
  */
-class CurlKit
+class Curl
 {
     /**
      * The cURL resource.

@@ -3,9 +3,9 @@
 namespace Toolkit\Test\Utility;
 
 use PHPUnit\Framework\TestCase;
-use Toolkit\Utility\CurlKit;
+use Toolkit\Utility\Curl;
 
-class CurlKitTest extends TestCase
+class CurlTest extends TestCase
 {
     /**
      * This is the remote script request path.
@@ -16,7 +16,7 @@ class CurlKitTest extends TestCase
 
     protected function setUp()
     {
-        $this->Curl = new CurlKit();
+        $this->Curl = new Curl();
         $this->Curl->setOption(CURLOPT_SSL_VERIFYPEER, false);
         $this->Curl->setOption(CURLOPT_SSL_VERIFYHOST, false);
     }

@@ -7,7 +7,7 @@ namespace Toolkit\Utility;
  *
  * @package Toolkit\Utility
  */
-class StringKit
+class Str
 {
     /**
      * Make a string uppercase.

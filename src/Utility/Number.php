@@ -5,11 +5,11 @@ namespace Toolkit\Utility;
 use NumberFormatter;
 
 /**
- * Class NumKit
+ * Class Number
  *
  * @package Toolkit\Utility
  */
-class NumberKit
+class Number
 {
     const EPSILON = 0.00001;
 

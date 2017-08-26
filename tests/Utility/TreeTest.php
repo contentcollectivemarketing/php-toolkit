@@ -3,9 +3,9 @@
 namespace Toolkit\Test\Utility;
 
 use PHPUnit\Framework\TestCase;
-use Toolkit\Utility\TreeKit;
+use Toolkit\Utility\Tree;
 
-class TreeKitTest extends TestCase
+class TreeTest extends TestCase
 {
     private $data;
 
@@ -36,11 +36,11 @@ class TreeKitTest extends TestCase
             'parentId' => 'pid',
             'children' => 'child'
         ];
-        TreeKit::setConfig($config);
+        Tree::setConfig($config);
         $a = $b = $c = $this->data;
-        $x = TreeKit::getTree($a);
-        $y = TreeKit::makeTree($c);
-        $z = TreeKit::buildTree($b);
+        $x = Tree::getTree($a);
+        $y = Tree::makeTree($c);
+        $z = Tree::buildTree($b);
         self::assertSame($x, $y);
         self::assertSame($x, $z);
         self::assertSame($y, $z);
@@ -53,7 +53,7 @@ class TreeKitTest extends TestCase
             'parentId' => 'pid',
             'children' => 'child'
         ];
-        TreeKit::setConfig($config);
+        Tree::setConfig($config);
         $expect = [
             10 => [
                 13 => [
@@ -72,8 +72,8 @@ class TreeKitTest extends TestCase
             ]
         ];
         $data = $this->data;
-        $array = TreeKit::makeTree($data);
-        $actual = TreeKit::getTreeId($array);
+        $array = Tree::makeTree($data);
+        $actual = Tree::getTreeId($array);
         self::assertSame($expect, $actual);
     }
 }

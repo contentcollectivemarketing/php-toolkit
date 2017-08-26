@@ -3,9 +3,9 @@
 namespace Toolkit\Test\Utility;
 
 use PHPUnit\Framework\TestCase;
-use Toolkit\Utility\InflectorKit;
+use Toolkit\Utility\Inflector;
 
-class InflectorKitTest extends TestCase
+class InflectorTest extends TestCase
 {
     public function testPluralize()
     {
@@ -16,10 +16,10 @@ class InflectorKitTest extends TestCase
             'queries',
         ];
         $actual = [
-            InflectorKit::pluralize('child'),
-            InflectorKit::pluralize('woman'),
-            InflectorKit::pluralize('ox'),
-            InflectorKit::pluralize('query'),
+            Inflector::pluralize('child'),
+            Inflector::pluralize('woman'),
+            Inflector::pluralize('ox'),
+            Inflector::pluralize('query'),
         ];
         self::assertSame($expect, $actual);
     }
@@ -33,10 +33,10 @@ class InflectorKitTest extends TestCase
             'man',
         ];
         $actual = [
-            InflectorKit::singularize('apples'),
-            InflectorKit::singularize('children'),
-            InflectorKit::singularize('sexes'),
-            InflectorKit::singularize('men'),
+            Inflector::singularize('apples'),
+            Inflector::singularize('children'),
+            Inflector::singularize('sexes'),
+            Inflector::singularize('men'),
         ];
         self::assertSame($expect, $actual);
     }
@@ -52,9 +52,9 @@ class InflectorKitTest extends TestCase
             'ReplaceTempWithQuery',
         ];
         $actual = [
-            InflectorKit::camelize($a),
-            InflectorKit::camelize($b),
-            InflectorKit::camelize($c)
+            Inflector::camelize($a),
+            Inflector::camelize($b),
+            Inflector::camelize($c)
         ];
 
         self::assertSame($expect, $actual);
@@ -68,9 +68,9 @@ class InflectorKitTest extends TestCase
             'Hello Everybody'
         ];
         $actual = [
-            InflectorKit::humanize('this_is_a_test_script'),
-            InflectorKit::humanize('this*is*my*test*script', '*'),
-            InflectorKit::humanize('Hello Everybody')
+            Inflector::humanize('this_is_a_test_script'),
+            Inflector::humanize('this*is*my*test*script', '*'),
+            Inflector::humanize('Hello Everybody')
         ];
         self::assertSame($expect, $actual);
     }
@@ -83,9 +83,9 @@ class InflectorKitTest extends TestCase
             'UserProfileSetting',
         ];
         $actual = [
-            InflectorKit::classify('system_settings'),
-            InflectorKit::classify('Users'),
-            InflectorKit::classify('user_profile_settings'),
+            Inflector::classify('system_settings'),
+            Inflector::classify('Users'),
+            Inflector::classify('user_profile_settings'),
         ];
         self::assertSame($expect, $actual);
     }
@@ -97,8 +97,8 @@ class InflectorKitTest extends TestCase
             'to|lower|case',
         ];
         $actual = [
-            InflectorKit::delimit('ToUpperCase'),
-            InflectorKit::delimit('ToLowerCase', '|')
+            Inflector::delimit('ToUpperCase'),
+            Inflector::delimit('ToLowerCase', '|')
         ];
         self::assertSame($expect, $actual);
     }
@@ -110,8 +110,8 @@ class InflectorKitTest extends TestCase
             'string_to_array',
         ];
         $actual = [
-            InflectorKit::underscore('objectToArray'),
-            InflectorKit::underscore('stringToArray'),
+            Inflector::underscore('objectToArray'),
+            Inflector::underscore('stringToArray'),
         ];
         self::assertSame($expect, $actual);
     }
@@ -123,8 +123,8 @@ class InflectorKitTest extends TestCase
             'system-settings',
         ];
         $actual = [
-            InflectorKit::dasherize('ArrayToString'),
-            InflectorKit::dasherize('system_settings'),
+            Inflector::dasherize('ArrayToString'),
+            Inflector::dasherize('system_settings'),
         ];
         self::assertSame($expect, $actual);
     }
@@ -136,8 +136,8 @@ class InflectorKitTest extends TestCase
             'user_profile_settings',
         ];
         $actual = [
-            InflectorKit::tableize('Product'),
-            InflectorKit::tableize('UserProfileSetting'),
+            Inflector::tableize('Product'),
+            Inflector::tableize('UserProfileSetting'),
         ];
         self::assertSame($expect, $actual);
     }
@@ -150,9 +150,9 @@ class InflectorKitTest extends TestCase
             'usePHPVariableToQuery',
         ];
         $actual = [
-            InflectorKit::variable('UserProfile'),
-            InflectorKit::variable('Curl_Helper'),
-            InflectorKit::variable('UsePHPVariableToQuery'),
+            Inflector::variable('UserProfile'),
+            Inflector::variable('Curl_Helper'),
+            Inflector::variable('UsePHPVariableToQuery'),
         ];
         self::assertSame($expect, $actual);
     }

@@ -7,7 +7,7 @@ namespace Toolkit\Utility;
  *
  * @package Toolkit\Utility
  */
-class TreeKit
+class Tree
 {
     /**
      * Primary key name.
