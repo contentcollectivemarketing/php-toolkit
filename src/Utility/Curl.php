@@ -2,6 +2,8 @@
 
 namespace Toolkit\Utility;
 
+use ErrorException;
+
 /**
  * Class Curl
  *
@@ -56,7 +58,7 @@ class Curl
     public function __construct()
     {
         if (!extension_loaded('curl')) {
-            throw new \ErrorException('Please make sure the cURL extension is loaded.');
+            throw new ErrorException('Please make sure the cURL extension is loaded.');
         }
 
         $this->curl = curl_init();
