@@ -52,14 +52,12 @@ class Curl
     /**
      * CurlKit constructor.
      *
-     * @throws \ErrorException
+     * @throws ErrorException
      * @see https://secure.php.net/manual/en/curl.installation.php
      */
     public function __construct()
     {
-        if (!extension_loaded('curl')) {
-            throw new ErrorException('Please make sure the cURL extension is loaded.');
-        }
+        self::available();
 
         $this->curl = curl_init();
         $this->setOption(CURLOPT_HEADER, true);
@@ -189,5 +187,16 @@ class Curl
     {
         $this->setOption(CURLOPT_POST, true);
         $this->setOption(CURLOPT_POSTFIELDS, http_build_query($data));
+    }
+
+    /**
+     * @codeCoverageIgnore
+     * @throws \ErrorException
+     */
+    private static function available()
+    {
+        if (!extension_loaded('curl')) {
+            throw new ErrorException('Please make sure the cURL extension is loaded.');
+        }
     }
 }
