@@ -39,6 +39,8 @@ class StrTest extends TestCase
     {
         self::assertEquals(97, Str::toCode('a'));
         self::assertEquals(65, Str::toCode('A'));
+        self::assertEquals(25105, Str::toCode('我'));
+        self::assertEquals(63743, Str::toCode(''));
     }
 
     public function testLengthString()
