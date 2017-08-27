@@ -14,6 +14,13 @@ class StrTest extends TestCase
         $this->string = '我是中国人，我来自伟大的中华人民共和国，一个神奇的国度。';
     }
 
+    public function testCompare()
+    {
+        self::assertEquals(-1, Str::compare('a', 'b'));
+        self::assertEquals(0, Str::compare('str', 'str'));
+        self::assertEquals(1, Str::compare('world', 'hello'));
+    }
+
     public function testToUpper()
     {
         $expect = 'HELLO WORLD!';

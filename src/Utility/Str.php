@@ -2,6 +2,8 @@
 
 namespace Toolkit\Utility;
 
+use Collator;
+
 /**
  * Class Str
  *
@@ -9,6 +11,24 @@ namespace Toolkit\Utility;
  */
 class Str
 {
+    /**
+     * Make a comparison with a string.
+     *
+     * @param string $a
+     * @param string $b
+     * @return int
+     */
+    public static function compare(string $a, string $b) : int
+    {
+        if (false !== class_exists('Collator')) {
+            $collator = new Collator(setlocale(LC_COLLATE, null));
+
+            return $collator->compare($a, $b);
+        }
+
+        return strcmp($a, $b);
+    }
+
     /**
      * Make a string uppercase.
      *
