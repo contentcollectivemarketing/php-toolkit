@@ -52,6 +52,39 @@ class Str
     }
 
     /**
+     * Get a decimal code representation of a specific character.
+     *
+     * @param string $char Character.
+     * @return int
+     */
+    public static function toCode(string $char) : int
+    {
+        $code = ord($char[0]);
+        $bytes = 1;
+
+        if (!($code & 0x80)) { // 0xxxxxxx
+            return $code;
+        }
+
+        if (($code & 0xe0) === 0xc0) { // 110xxxxx
+            $bytes = 2;
+            $code &= ~0xc0;
+        } elseif (($code & 0xf0) === 0xe0) { // 1110xxxx
+            $bytes = 3;
+            $code &= ~0xe0;
+        } elseif (($code & 0xf8) === 0xf0) { // 11110xxx
+            $bytes = 4;
+            $code &= ~0xf0;
+        }
+
+        for ($i = 2; $i <= $bytes; $i++) {
+            $code = ($code << 6) + (ord($char[$i - 1]) & ~0x80);
+        }
+
+        return $code;
+    }
+
+    /**
      * Get string length.
      *
      * @param string $string

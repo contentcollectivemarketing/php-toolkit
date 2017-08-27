@@ -35,6 +35,12 @@ class StrTest extends TestCase
         self::assertEquals($expect, $actual);
     }
 
+    public function toCode()
+    {
+        self::assertEquals(97, Str::toCode('a'));
+        self::assertEquals(65, Str::toCode('A'));
+    }
+
     public function testLengthString()
     {
         $actual = Str::length($this->string);
