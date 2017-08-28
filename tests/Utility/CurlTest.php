@@ -16,6 +16,9 @@ class CurlTest extends TestCase
 
     protected function setUp()
     {
+        if (!extension_loaded('curl')) {
+            self::markTestSkipped('The CURL extension is not available.');
+        }
         $this->Curl = new Curl();
         $this->Curl->setOption(CURLOPT_SSL_VERIFYPEER, false);
         $this->Curl->setOption(CURLOPT_SSL_VERIFYHOST, false);
