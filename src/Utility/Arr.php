@@ -3,10 +3,10 @@
 namespace Toolkit\Utility;
 
 /**
- * Class Arr
+ * Class Arr.
  *
  * @package Toolkit\Utility
- * @link    https://github.com/laravel/framework
+ * @see     https://github.com/laravel/framework
  */
 class Arr
 {

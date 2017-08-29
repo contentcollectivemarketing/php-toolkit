@@ -3,7 +3,7 @@
 namespace Toolkit\Utility;
 
 /**
- * Class Tree
+ * Class Tree.
  *
  * @package Toolkit\Utility
  */

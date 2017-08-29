@@ -5,7 +5,7 @@ namespace Toolkit\Utility;
 use NumberFormatter;
 
 /**
- * Class Number
+ * Class Number.
  *
  * @package Toolkit\Utility
  */

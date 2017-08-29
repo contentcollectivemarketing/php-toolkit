@@ -5,7 +5,7 @@ namespace Toolkit\Utility;
 use Collator;
 
 /**
- * Class Str
+ * Class Str.
  *
  * @package Toolkit\Utility
  */

@@ -3,7 +3,7 @@
 namespace Toolkit\Utility;
 
 /**
- * Class Inflector
+ * Class Inflector.
  *
  * Pluralize & Singularize implementation are borrowed from CakePHP with some modifications.
  *

@@ -5,10 +5,10 @@ namespace Toolkit\Utility;
 use ErrorException;
 
 /**
- * Class Curl
+ * Class Curl.
  *
  * @package Toolkit\Utility
- * @link    https://github.com/php-mod/curl
+ * @see     https://github.com/php-mod/curl
  */
 class Curl
 {
