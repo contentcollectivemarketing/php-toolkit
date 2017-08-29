@@ -254,13 +254,7 @@ class Inflector
         if (isset(self::$irregular[$word])) {
             return self::$irregular[$word];
         }
-
-        foreach (self::$plural as $pattern => $replacement) {
-            if (preg_match($pattern, $word)) {
-                $word = preg_replace($pattern, $replacement, $word);
-                break;
-            }
-        }
+        $word = self::replace(self::$plural, $word);
 
         return $word;
     }
@@ -278,13 +272,7 @@ class Inflector
         if ($result !== false) {
             return $result;
         }
-
-        foreach (self::$singular as $pattern => $replacement) {
-            if (preg_match($pattern, $word)) {
-                $word = preg_replace($pattern, $replacement, $word);
-                break;
-            }
-        }
+        $word = self::replace(self::$singular, $word);
 
         return $word;
     }
@@ -386,5 +374,47 @@ class Inflector
         $variable = self::camelize(self::underscore($string));
 
         return strtolower($variable[0]) . substr($string, 1);
+    }
+
+    /**
+     * Convert number to its ordinal english form.
+     *
+     * @param int    $number
+     * @param string $delimiter
+     * @return string
+     */
+    public static function ordinalize(int $number, string $delimiter = '') : string
+    {
+        if (in_array($number % 100, range(11, 13), true)) {
+            return $number . $delimiter . 'th';
+        }
+
+        switch ($number % 10) {
+            case 1:
+                return $number . $delimiter . 'st';
+            case 2:
+                return $number . $delimiter . 'nd';
+            case 3:
+                return $number . $delimiter . 'rd';
+            case 4:
+                return $number . $delimiter . 'th';
+        }
+    }
+
+    /**
+     * @param array  $array
+     * @param string $word
+     * @return string
+     */
+    private static function replace(array $array, string $word) : string
+    {
+        foreach ($array as $pattern => $replacement) {
+            if (preg_match($pattern, $word)) {
+                $word = preg_replace($pattern, $replacement, $word);
+                break;
+            }
+        }
+
+        return $word;
     }
 }
