@@ -40,11 +40,11 @@ class Number
             case '<=':
                 // less than or equal
             case 'lte':
-                return self::equalTo($a, $b);
+                return self::isEqualTo($a, $b);
             case '>=':
                 // greater than or equal
             case 'gte':
-                return self::equalTo($a, $b, true);
+                return self::isEqualTo($a, $b, true);
             case '<>':
                 // not equal
             case '!=':
@@ -179,7 +179,7 @@ class Number
      * @return bool
      * @throws \InvalidArgumentException
      */
-    private static function equalTo(float $a, float $b, $flag = false) : bool
+    private static function isEqualTo(float $a, float $b, $flag = false) : bool
     {
         return self::compare($a, $b, $flag ? '>' : '<')
             || self::compare($a, $b);
