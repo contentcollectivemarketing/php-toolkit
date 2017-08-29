@@ -40,14 +40,11 @@ class Number
             case '<=':
                 // less than or equal
             case 'lte':
-                // less than or equal
+                return self::equalTo($a, $b);
             case '>=':
                 // greater than or equal
             case 'gte':
-                $flag = in_array($operator, ['>=', 'gte'], true);
-
-                return self::compare($a, $b, $flag ? '>' : '<')
-                    || self::compare($a, $b);
+                return self::equalTo($a, $b, true);
             case '<>':
                 // not equal
             case '!=':
@@ -180,8 +177,21 @@ class Number
      * @param float $b
      * @param bool  $flag
      * @return bool
+     * @throws \InvalidArgumentException
      */
-    private static function epsilon(float $a, float $b, $flag = false)
+    private static function equalTo(float $a, float $b, $flag = false) : bool
+    {
+        return self::compare($a, $b, $flag ? '>' : '<')
+            || self::compare($a, $b);
+    }
+
+    /**
+     * @param float $a
+     * @param float $b
+     * @param bool  $flag
+     * @return bool
+     */
+    private static function epsilon(float $a, float $b, $flag = false) : bool
     {
         $value = abs($a - $b);
 
