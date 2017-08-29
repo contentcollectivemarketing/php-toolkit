@@ -14,6 +14,10 @@ class Str
     /**
      * Make a comparison with a string.
      *
+     * - 1: If $a is greater than $b
+     * - 2: If $a is equal to $b
+     * - 3: If $a is less than $b
+     *
      * @param string $a
      * @param string $b
      * @return int
@@ -37,7 +41,7 @@ class Str
      */
     public static function toUpper(string $string) : string
     {
-        return strtoupper($string);
+        return mb_strtoupper($string, 'UTF-8');
     }
 
     /**
@@ -48,7 +52,7 @@ class Str
      */
     public static function toLower(string $string) : string
     {
-        return strtolower($string);
+        return mb_strtolower($string, 'UTF-8');
     }
 
     /**
