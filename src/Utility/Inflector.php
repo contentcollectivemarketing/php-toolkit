@@ -254,13 +254,7 @@ class Inflector
         if (isset(self::$irregular[$word])) {
             return self::$irregular[$word];
         }
-
-        foreach (self::$plural as $pattern => $replacement) {
-            if (preg_match($pattern, $word)) {
-                $word = preg_replace($pattern, $replacement, $word);
-                break;
-            }
-        }
+        $word = self::replace(self::$plural, $word);
 
         return $word;
     }
@@ -278,13 +272,7 @@ class Inflector
         if ($result !== false) {
             return $result;
         }
-
-        foreach (self::$singular as $pattern => $replacement) {
-            if (preg_match($pattern, $word)) {
-                $word = preg_replace($pattern, $replacement, $word);
-                break;
-            }
-        }
+        $word = self::replace(self::$singular, $word);
 
         return $word;
     }
@@ -386,5 +374,22 @@ class Inflector
         $variable = self::camelize(self::underscore($string));
 
         return strtolower($variable[0]) . substr($string, 1);
+    }
+
+    /**
+     * @param array  $array
+     * @param string $word
+     * @return string
+     */
+    private static function replace(array $array, string $word) : string
+    {
+        foreach ($array as $pattern => $replacement) {
+            if (preg_match($pattern, $word)) {
+                $word = preg_replace($pattern, $replacement, $word);
+                break;
+            }
+        }
+
+        return $word;
     }
 }
