@@ -156,4 +156,19 @@ class InflectorTest extends TestCase
         ];
         self::assertSame($expect, $actual);
     }
+
+    public function testOrdinalize()
+    {
+        $expect = [
+            '1st',
+            '2nd',
+            '3 rd',
+        ];
+        $actual = [
+            Inflector::ordinalize(1),
+            Inflector::ordinalize(2),
+            Inflector::ordinalize(3, ' '),
+        ];
+        self::assertEquals($expect, $actual);
+    }
 }

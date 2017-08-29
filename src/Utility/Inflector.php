@@ -377,6 +377,31 @@ class Inflector
     }
 
     /**
+     * Convert number to its ordinal english form.
+     *
+     * @param int    $number
+     * @param string $delimiter
+     * @return string
+     */
+    public static function ordinalize(int $number, string $delimiter = '') : string
+    {
+        if (in_array($number % 100, range(11, 13), true)) {
+            return $number . $delimiter . 'th';
+        }
+
+        switch ($number % 10) {
+            case 1:
+                return $number . $delimiter . 'st';
+            case 2:
+                return $number . $delimiter . 'nd';
+            case 3:
+                return $number . $delimiter . 'rd';
+            case 4:
+                return $number . $delimiter . 'th';
+        }
+    }
+
+    /**
      * @param array  $array
      * @param string $word
      * @return string
