@@ -85,6 +85,16 @@ class Str
     }
 
     /**
+     * @param string $string
+     * @param string $character
+     * @return string
+     */
+    public static function trim(string $string, string $character = " \t\n\r\0\x0B") : string
+    {
+        return trim($string, $character);
+    }
+
+    /**
      * Get string length.
      *
      * @param string $string

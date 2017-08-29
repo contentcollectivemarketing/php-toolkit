@@ -43,6 +43,15 @@ class StrTest extends TestCase
         self::assertEquals(63743, Str::toCode(''));
     }
 
+    public function testTrim()
+    {
+        $string = '      
+            abc
+        ';
+        self::assertEquals('hello world', Str::trim(' hello world  '));
+        self::assertEquals('abc', Str::trim($string));
+    }
+
     public function testLengthString()
     {
         $actual = Str::length($this->string);
