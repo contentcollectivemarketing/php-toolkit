@@ -66,7 +66,8 @@ class Arr
     }
 
     /**
-     * Builds a map (key-value pairs) from a multidimensional array or an array of objects.
+     * Builds a map (key-value pairs) from a multidimensional
+     * array or an array of objects.
      *
      * @param array      $array
      * @param string     $from
@@ -74,8 +75,12 @@ class Arr
      * @param null|mixed $group
      * @return array
      */
-    public static function map(array $array, string $from, string $to, $group = null) : array
-    {
+    public static function map(
+        array $array,
+        string $from,
+        string $to,
+        $group = null
+    ) : array {
         $result = [];
         foreach ($array as $item) {
             $key = static::get($item, $from);
@@ -103,7 +108,8 @@ class Arr
     }
 
     /**
-     * Divide an array into two arrays. One with keys and the other with values.
+     * Divide an array into two arrays. One with keys and
+     * the other with values.
      *
      * @param array $array
      * @return array
