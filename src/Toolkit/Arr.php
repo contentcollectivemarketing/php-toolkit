@@ -1,13 +1,7 @@
 <?php
 
-namespace Toolkit\Utility;
+namespace Toolkit;
 
-/**
- * Class Arr.
- *
- * @package Toolkit\Utility
- * @see     https://github.com/laravel/framework
- */
 class Arr
 {
     /**

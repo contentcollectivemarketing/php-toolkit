@@ -1,9 +1,9 @@
 <?php
 
-namespace Toolkit\Test\Utility;
+namespace Toolkit\Test;
 
 use PHPUnit\Framework\TestCase;
-use Toolkit\Utility\Number;
+use Toolkit\Number;
 
 class NumberTest extends TestCase
 {

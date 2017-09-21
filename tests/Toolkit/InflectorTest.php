@@ -1,9 +1,9 @@
 <?php
 
-namespace Toolkit\Test\Utility;
+namespace Toolkit\Test;
 
 use PHPUnit\Framework\TestCase;
-use Toolkit\Utility\Inflector;
+use Toolkit\Inflector;
 
 class InflectorTest extends TestCase
 {
