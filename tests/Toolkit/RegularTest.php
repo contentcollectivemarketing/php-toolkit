@@ -1,9 +1,9 @@
 <?php
 
-namespace Toolkit\Test\Utility;
+namespace Toolkit\Test;
 
 use PHPUnit\Framework\TestCase;
-use Toolkit\Utility\Regular;
+use Toolkit\Regular;
 
 class RegularTest extends TestCase
 {

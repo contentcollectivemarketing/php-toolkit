@@ -1,12 +1,7 @@
 <?php
 
-namespace Toolkit\Utility;
+namespace Toolkit;
 
-/**
- * Class Tree.
- *
- * @package Toolkit\Utility
- */
 class Tree
 {
     /**

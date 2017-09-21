@@ -1,9 +1,9 @@
 <?php
 
-namespace Toolkit\Test\Utility;
+namespace Toolkit\Test;
 
 use PHPUnit\Framework\TestCase;
-use Toolkit\Utility\Tree;
+use Toolkit\Tree;
 
 class TreeTest extends TestCase
 {

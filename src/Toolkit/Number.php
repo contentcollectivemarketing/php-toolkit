@@ -1,14 +1,9 @@
 <?php
 
-namespace Toolkit\Utility;
+namespace Toolkit;
 
 use NumberFormatter;
 
-/**
- * Class Number.
- *
- * @package Toolkit\Utility
- */
 class Number
 {
     const EPSILON = 0.00001;

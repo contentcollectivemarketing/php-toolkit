@@ -1,12 +1,7 @@
 <?php
 
-namespace Toolkit\Utility;
+namespace Toolkit;
 
-/**
- * Class Text.
- *
- * @package Toolkit\Utility
- */
 class Text
 {
     /**
