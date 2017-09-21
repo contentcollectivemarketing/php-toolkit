@@ -1,9 +1,9 @@
 <?php
 
-namespace Toolkit\Test\Utility;
+namespace Toolkit\Test;
 
 use PHPUnit\Framework\TestCase;
-use Toolkit\Utility\Arr;
+use Toolkit\Arr;
 
 class ArrTest extends TestCase
 {

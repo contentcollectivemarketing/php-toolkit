@@ -1,9 +1,9 @@
 <?php
 
-namespace Toolkit\Test\Utility;
+namespace Toolkit\Test;
 
 use PHPUnit\Framework\TestCase;
-use Toolkit\Utility\Text;
+use Toolkit\Text;
 
 class TextTest extends TestCase
 {

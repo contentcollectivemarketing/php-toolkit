@@ -1,14 +1,9 @@
 <?php
 
-namespace Toolkit\Utility;
+namespace Toolkit;
 
 use Collator;
 
-/**
- * Class Str.
- *
- * @package Toolkit\Utility
- */
 class Str
 {
     /**

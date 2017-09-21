@@ -1,12 +1,7 @@
 <?php
 
-namespace Toolkit\Utility;
+namespace Toolkit;
 
-/**
- * Class Regular.
- *
- * @package Toolkit\Utility
- */
 class Regular
 {
     /**
