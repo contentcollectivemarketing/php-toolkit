@@ -78,11 +78,21 @@ class NumberTest extends TestCase
         $expect = [
             '9,999,999,999.00',
             '100.0',
-            '0.4444',
+            '0.4445',
             '99.45',
             '999 999,996',
             '8,888.8889',
             '4.444,44445',
+            '0.01',
+            '0.02',
+            '0.03',
+            '0.04',
+            '0.05',
+            '0.06',
+            '0.07',
+            '0.08',
+            '0.09',
+            '0.10',
         ];
         $actual = [
             Number::toDecimal(9999999999),
@@ -92,6 +102,16 @@ class NumberTest extends TestCase
             Number::toDecimal(999999.9956789, 3, 'fr_FR'),
             Number::toDecimal(8888.8888999, 4, 'en-US'),
             Number::toDecimal(4444.4444455555, 5, 'it-IT'),
+            Number::toDecimal(0.005),
+            Number::toDecimal(0.015),
+            Number::toDecimal(0.025),
+            Number::toDecimal(0.035),
+            Number::toDecimal(0.045),
+            Number::toDecimal(0.055),
+            Number::toDecimal(0.065),
+            Number::toDecimal(0.075),
+            Number::toDecimal(0.085),
+            Number::toDecimal(0.095),
         ];
         self::assertEquals($expect, $actual);
     }

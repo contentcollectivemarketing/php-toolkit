@@ -102,20 +102,25 @@ class Number
      * @param int    $precision
      * @param string $currency
      * @return string
-     * @see http://dwz.cn/6q4xWs
+     * @see https://hotexamples.com/examples/-/NumberFormatter/-/php-numberformatter-class-examples.html
      */
     public static function toDecimal(
         float $money,
         int $precision = 2,
-        string $currency = 'zh-CN'
+        string $currency = 'zh_CN'
     ) : string {
-        $formatter = new NumberFormatter(
-            $currency,
-            NumberFormatter::DECIMAL
+        $formatter = new NumberFormatter($currency, NumberFormatter::DECIMAL);
+        $formatter->setAttribute(
+            NumberFormatter::MIN_FRACTION_DIGITS,
+            $precision
         );
         $formatter->setAttribute(
-            NumberFormatter::FRACTION_DIGITS,
+            NumberFormatter::MAX_FRACTION_DIGITS,
             $precision
+        );
+        $formatter->setAttribute(
+            NumberFormatter::ROUNDING_MODE,
+            NumberFormatter::ROUND_UP
         );
         $value = $formatter->format($money);
 
