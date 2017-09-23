@@ -63,6 +63,12 @@ class RegularTest extends TestCase
         self::assertFalse(Regular::isQq(123456789012));
     }
 
+    public function testIsColorHexCode()
+    {
+        self::assertTrue(Regular::isColorHexCode('#Fba091'));
+        self::assertFalse(Regular::isColorHexCode('#A6T7P2'));
+    }
+
     public function testIsIpv4()
     {
         self::assertTrue(Regular::isIpv4('127.0.0.1'));
