@@ -35,6 +35,10 @@ class Regular
          */
         'phone'    => '/^(?=\d{11}$)^1(?:3\d|4[57]|5[^4\D]|7[^249\D]|8\d)\d{8}$/',
 
+        /**
+         * 中文
+         */
+        'chinese'  => '/^[\x{4e00}-\x{9fa5}]+$/u',
 
         /**
          * 中国移动: China Mobile
@@ -121,6 +125,17 @@ class Regular
     public static function isPhone($phone) : bool
     {
         return self::match(self::get('phone'), $phone);
+    }
+
+    /**
+     * Verify the string
+     *
+     * @param string $chinese
+     * @return bool
+     */
+    public static function isChinese(string $chinese) : bool
+    {
+        return self::match(self::get('chinese'), $chinese);
     }
 
     /**
