@@ -24,6 +24,12 @@ class RegularTest extends TestCase
         self::assertFalse(Regular::isPhone('12345678900'));
     }
 
+    public function testIsChinese()
+    {
+        self::assertTrue(Regular::isChinese('向编程大牛们致敬'));
+        self::assertFalse(Regular::isChinese('向 PHP 编程大牛们致敬'));
+    }
+
     public function testIsChinaMobile()
     {
         self::assertTrue(Regular::isChinaMobile('13519198888'));
