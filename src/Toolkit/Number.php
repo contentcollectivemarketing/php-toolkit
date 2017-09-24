@@ -20,17 +20,17 @@ class Number
     public static function compare(float $a, float $b, string $operator = '=') : bool
     {
         switch ($operator) {
-            case self::equal($operator):
+            case $operator === '=' || $operator === 'eq':
                 return self::epsilon($a, $b);
-            case self::less($operator):
+            case $operator === '<' || $operator === 'lt':
                 return self::epsilon($a, $b) ? false : $a < $b;
-            case self::greater($operator):
+            case $operator === '>' || $operator === 'gt':
                 return self::epsilon($a, $b) ? false : $a > $b;
-            case self::lessEqual($operator):
+            case $operator === '<=' || $operator === 'lte':
                 return self::isEqualTo($a, $b);
-            case self::greaterEqual($operator):
+            case $operator === '>=' || $operator === 'gte':
                 return self::isEqualTo($a, $b, true);
-            case self::notEqual($operator):
+            case $operator === '!=' || $operator === '<>' || $operator === 'ne':
                 return self::epsilon($a, $b, true) ? true : false;
             default:
                 throw new \InvalidArgumentException('Invalid operator.');
@@ -182,63 +182,5 @@ class Number
         $value = abs($a - $b);
 
         return $flag ? $value > self::EPSILON : $value < self::EPSILON;
-    }
-
-    /**
-     * @param string $operator
-     * @return bool
-     */
-    private static function equal(string $operator) : bool
-    {
-        return $operator === '=' || $operator === 'eq';
-    }
-
-    /**
-     * @param string $operator
-     * @return bool
-     */
-    private static function less(string $operator) : bool
-    {
-        return $operator === '<' || $operator === 'lt';
-    }
-
-    /**
-     * Less than or equal.
-     *
-     * @param string $operator
-     * @return bool
-     */
-    private static function lessEqual(string $operator) : bool
-    {
-        return $operator === '<=' || $operator === 'lte';
-    }
-
-    /**
-     * Greater than or equal.
-     *
-     * @param string $operator
-     * @return bool
-     */
-    private static function greaterEqual(string $operator) : bool
-    {
-        return $operator === '>=' || $operator === 'gte';
-    }
-
-    /**
-     * @param string $operator
-     * @return bool
-     */
-    private static function greater(string $operator) : bool
-    {
-        return $operator === '>' || $operator === 'gt';
-    }
-
-    /**
-     * @param string $operator
-     * @return bool
-     */
-    private static function notEqual(string $operator) : bool
-    {
-        return $operator === '!=' || $operator === '<>' || $operator === 'ne';
     }
 }
