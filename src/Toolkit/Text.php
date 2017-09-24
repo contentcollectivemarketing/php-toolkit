@@ -11,14 +11,18 @@ class Text
      */
     public static function uuid() : string
     {
+        $random = function_exists('random_int') ? 'random_int' : 'mt_random';
+
         return sprintf(
-            '%08x-%04x-%04x-%04x-%04x%08x',
-            random_int(0, 16777215),
-            random_int(0, 65535),
-            random_int(0, 65535),
-            random_int(0, 65535),
-            random_int(0, 65535),
-            random_int(0, 16777215)
+            '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+            $random(0, 65535),
+            $random(0, 65535),
+            $random(0, 65535),
+            $random(0, 4095) | 0x4000,
+            $random(0, 0x3fff) | 0x8000,
+            $random(0, 65535),
+            $random(0, 65535),
+            $random(0, 65535)
         );
     }
 }
