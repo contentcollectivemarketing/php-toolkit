@@ -163,11 +163,13 @@ class InflectorTest extends TestCase
             '1st',
             '2nd',
             '3 rd',
+            '4th',
         ];
         $actual = [
             Inflector::ordinalize(1),
             Inflector::ordinalize(2),
             Inflector::ordinalize(3, ' '),
+            Inflector::ordinalize(4),
         ];
         self::assertEquals($expect, $actual);
     }
