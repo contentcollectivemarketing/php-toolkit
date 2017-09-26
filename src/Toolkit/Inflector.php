@@ -378,20 +378,15 @@ class Inflector
      */
     public static function ordinalize(int $number, string $delimiter = '') : string
     {
+        $result = $number . $delimiter;
         if (in_array($number % 100, range(11, 13), true)) {
-            return $number . $delimiter . 'th';
+            return $result . 'th';
         }
 
-        switch ($number % 10) {
-            case 1:
-                return $number . $delimiter . 'st';
-            case 2:
-                return $number . $delimiter . 'nd';
-            case 3:
-                return $number . $delimiter . 'rd';
-            case 4:
-                return $number . $delimiter . 'th';
-        }
+        $matrix = $number % 10;
+        $array = [1 => 'st', 2 => 'nd', 3 => 'rd'];
+
+        return isset($array[$matrix]) ? ($result . $array[$matrix]) : ($result . 'th');
     }
 
     /**
