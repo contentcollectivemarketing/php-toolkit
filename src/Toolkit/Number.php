@@ -116,43 +116,31 @@ class Number
     /**
      * Format bytes to bytes, kilobytes, megabytes, gigabytes, terabytes, petabytes.
      *
-     * - These two will be equivalent as of PHP 5.6.0
-     *
      * ```php
-     * $bytes /= $base ** $pow;
-     * $bytes /= pow($base, $pow);
-     *
-     * $bytes /= (1 << (10 * $pow));
+     * $pow = 0;
+     * for ($i = 0; $bytes >= $base && $i < 5; $i++) {
+     *     $bytes /= $base;
+     *     $pow++;
+     * }
      * ```
      *
      * @param int    $bytes
      * @param int    $precision
      * @param string $delimiter
-     * @param int    $type
      * @return string
      * @link https://stackoverflow.com/questions/2510434/format-bytes-to-kilobytes-megabytes-gigabytes
      */
     public static function toBytes(
         int $bytes,
         int $precision = 2,
-        string $delimiter = ' ',
-        int $type = 1
+        string $delimiter = ' '
     ) : string {
         $units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
         $base = 1024;
-        $pow = 0;
-
-        if ($type === 1) {
-            $bytes = max($bytes, 0);
-            $pow = floor(($bytes ? log($bytes) : 0) / log($base));
-            $pow = min($pow, count($units) - 1);
-            $bytes /= $base ** $pow;
-        } else {
-            for ($i = 0; $bytes >= $base && $i < 5; $i++) {
-                $bytes /= $base;
-                $pow++;
-            }
-        }
+        $bytes = max($bytes, 0);
+        $pow = floor(($bytes ? log($bytes) : 0) / log($base));
+        $pow = min($pow, count($units) - 1);
+        $bytes /= $base ** $pow;
         $unit = $units[$pow];
 
         return round($bytes, $precision) . $delimiter . $unit;

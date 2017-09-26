@@ -122,7 +122,7 @@ class NumberTest extends TestCase
         $actual = [
             Number::toBytes(24962496),
             Number::toBytes(24962496, 0, '-'),
-            Number::toBytes(24962496, 4, '', 2),
+            Number::toBytes(24962496, 4, ''),
             Number::toBytes(1099511627776)
         ];
         self::assertSame($expect, $actual);
