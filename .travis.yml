@@ -31,5 +31,5 @@ after_success:
     - if [[ $PHPCS = 1 ]]; then travis_retry php vendor/bin/coveralls -v; fi
 
 notifications:
-  email: true
+  email: false
 
