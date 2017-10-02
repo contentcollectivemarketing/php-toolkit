@@ -29,6 +29,7 @@ script:
 after_success:
     - if [[ $PHPCS = 1 ]]; then bash <(curl -s https://codecov.io/bash); fi
     - if [[ $PHPCS = 1 ]]; then travis_retry php vendor/bin/coveralls -v; fi
+    - php vendor/bin/codacycoverage clover build/logs/clover.xml
 
 notifications:
   email: false
