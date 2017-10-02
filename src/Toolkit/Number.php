@@ -11,27 +11,30 @@ class Number
     /**
      * Compare floating point numbers.
      *
-     * @param float  $a
-     * @param float  $b
+     * @param float  $left
+     * @param float  $right
      * @param string $operator
      * @return bool
      * @throws \InvalidArgumentException
      */
-    public static function compare(float $a, float $b, string $operator = '=') : bool
-    {
+    public static function compare(
+        float $left,
+        float $right,
+        string $operator = '='
+    ) : bool {
         switch ($operator) {
             case $operator === '=' || $operator === 'eq':
-                return self::epsilon($a, $b);
+                return self::epsilon($left, $right);
             case $operator === '<' || $operator === 'lt':
-                return self::epsilon($a, $b) ? false : $a < $b;
+                return self::epsilon($left, $right) ? false : $left < $right;
             case $operator === '>' || $operator === 'gt':
-                return self::epsilon($a, $b) ? false : $a > $b;
+                return self::epsilon($left, $right) ? false : $left > $right;
             case $operator === '<=' || $operator === 'lte':
-                return self::isEqualTo($a, $b);
+                return self::isEqualTo($left, $right);
             case $operator === '>=' || $operator === 'gte':
-                return self::isEqualTo($a, $b, true);
+                return self::isEqualTo($left, $right, true);
             case $operator === '!=' || $operator === '<>' || $operator === 'ne':
-                return self::epsilon($a, $b, true) ? true : false;
+                return self::epsilon($left, $right, true) ? true : false;
             default:
                 throw new \InvalidArgumentException('Invalid operator.');
         }
