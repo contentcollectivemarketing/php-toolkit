@@ -240,6 +240,7 @@ class Inflector
      * Returns the singular form of a word.
      *
      * @param string $word
+     *
      * @return string
      */
     public static function pluralize(string $word) : string
@@ -256,6 +257,7 @@ class Inflector
      * Returns the singular form of a word.
      *
      * @param string $word
+     *
      * @return false|int|mixed|string
      */
     public static function singularize(string $word)
@@ -275,6 +277,7 @@ class Inflector
      *
      * @param string $string
      * @param string $delimiter
+     *
      * @return string
      */
     public static function camelize(string $string, string $delimiter = '_') : string
@@ -287,6 +290,7 @@ class Inflector
      *
      * @param string $string
      * @param string $delimiter
+     *
      * @return string
      */
     public static function humanize(string $string, string $delimiter = '_') : string
@@ -304,6 +308,7 @@ class Inflector
      * converts 'table_name' to 'TableName'.
      *
      * @param string $word
+     *
      * @return string
      */
     public static function classify(string $word) : string
@@ -316,6 +321,7 @@ class Inflector
      *
      * @param string $string
      * @param string $delimiter
+     *
      * @return string
      */
     public static function delimit(string $string, string $delimiter = '_') : string
@@ -327,6 +333,7 @@ class Inflector
      * Converts any "CamelCasedString" into an "underscored_string".
      *
      * @param string $string
+     *
      * @return string
      */
     public static function underscore(string $string) : string
@@ -338,6 +345,7 @@ class Inflector
      * Converts any "CamelCasedString" into as an "dashed-string".
      *
      * @param string $string
+     *
      * @return string
      */
     public static function dasherize(string $string) : string
@@ -349,6 +357,7 @@ class Inflector
      * Converts a class name to its table name (pluralized) naming conventions.
      *
      * @param string $table
+     *
      * @return string
      */
     public static function tableize(string $table) : string
@@ -360,6 +369,7 @@ class Inflector
      * Returns camelBacked version of an underscored string.
      *
      * @param string $string
+     *
      * @return string
      */
     public static function variable(string $string) : string
@@ -374,6 +384,7 @@ class Inflector
      *
      * @param int    $number
      * @param string $delimiter
+     *
      * @return string
      */
     public static function ordinalize(int $number, string $delimiter = '') : string
@@ -392,6 +403,7 @@ class Inflector
     /**
      * @param array  $array
      * @param string $word
+     *
      * @return string
      */
     private static function replace(array $array, string $word) : string

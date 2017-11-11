@@ -10,6 +10,7 @@ class Arr
      * @param array      $array
      * @param mixed      $key
      * @param null|mixed $default
+     *
      * @return null|mixed
      */
     public static function get(array $array, $key, $default = null)
@@ -29,6 +30,7 @@ class Arr
      * @param array      $array
      * @param mixed      $key
      * @param null|mixed $val
+     *
      * @return array
      */
     public static function set(array & $array, $key, $val = null) : array
@@ -48,6 +50,7 @@ class Arr
      * @param array      $array
      * @param mixed      $key
      * @param null|mixed $val
+     *
      * @return array
      */
     public static function add(array $array, $key, $val = null) : array
@@ -67,6 +70,7 @@ class Arr
      * @param string     $from
      * @param string     $to
      * @param null|mixed $group
+     *
      * @return array
      */
     public static function map(
@@ -94,6 +98,7 @@ class Arr
      *
      * @param array $array
      * @param mixed $key
+     *
      * @return bool
      */
     public static function exists(array $array, $key) : bool
@@ -106,6 +111,7 @@ class Arr
      * the other with values.
      *
      * @param array $array
+     *
      * @return array
      */
     public static function divide(array $array) : array
@@ -118,6 +124,7 @@ class Arr
      *
      * @param array        $array
      * @param array|string $key
+     *
      * @return array
      */
     public static function only(array $array, $key) : array
@@ -129,6 +136,7 @@ class Arr
      * Strip whitespace an array item from an given array.
      *
      * @param array $array
+     *
      * @return array
      */
     public static function trim(array $array) : array

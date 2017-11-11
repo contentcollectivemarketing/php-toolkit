@@ -33,7 +33,7 @@ class CurlTest extends TestCase
     {
         $this->Curl->get(self::TEST_URI, [
             'key' => 'REQUEST_METHOD',
-            'val' => 'server'
+            'val' => 'server',
         ]);
         $actual = $this->Curl->response;
         $this->Curl->close();
@@ -44,7 +44,7 @@ class CurlTest extends TestCase
     {
         $this->Curl->post(self::TEST_URI, [
             'key' => 'REQUEST_METHOD',
-            'val' => 'server'
+            'val' => 'server',
         ]);
         $this->Curl->__destruct();
         $this->assertEquals('POST', $this->Curl->response);

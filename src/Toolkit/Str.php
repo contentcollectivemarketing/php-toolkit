@@ -15,6 +15,7 @@ class Str
      *
      * @param string $a
      * @param string $b
+     *
      * @return int
      */
     public static function compare(string $a, string $b) : int
@@ -32,6 +33,7 @@ class Str
      * Make a string uppercase.
      *
      * @param string $string
+     *
      * @return string
      */
     public static function toUpper(string $string) : string
@@ -43,6 +45,7 @@ class Str
      * Make a string lowercase.
      *
      * @param string $string
+     *
      * @return string
      */
     public static function toLower(string $string) : string
@@ -54,6 +57,7 @@ class Str
      * Get a decimal code representation of a specific character.
      *
      * @param string $char Character.
+     *
      * @return int
      */
     public static function toCode(string $char) : int
@@ -86,6 +90,7 @@ class Str
     /**
      * @param string $string
      * @param string $character
+     *
      * @return string
      */
     public static function trim(string $string, string $character = " \t\n\r\0\x0B") : string
@@ -97,6 +102,7 @@ class Str
      * Get string length.
      *
      * @param string $string
+     *
      * @return int
      */
     public static function length(string $string) : int
@@ -110,6 +116,7 @@ class Str
      * @param string   $string
      * @param int      $start
      * @param int|null $length
+     *
      * @return string
      */
     public static function substr(string $string, int $start, int $length = null) : string
@@ -127,6 +134,7 @@ class Str
      * @param string $string
      * @param int    $length
      * @param string $placeholder
+     *
      * @return string
      */
     public static function truncate($string, $length = 15, $placeholder = '...') : string
@@ -143,6 +151,7 @@ class Str
      *
      * @param string $string
      * @param string $given
+     *
      * @return string
      */
     public static function beforeOfFirst(string $string, string $given) : string
@@ -155,6 +164,7 @@ class Str
      *
      * @param string $string
      * @param string $given
+     *
      * @return string
      */
     public static function beforeOfLast(string $string, string $given) : string
@@ -167,6 +177,7 @@ class Str
      *
      * @param string $string
      * @param string $given
+     *
      * @return string
      */
     public static function afterOfFirst(string $string, string $given) : string
@@ -183,6 +194,7 @@ class Str
      *
      * @param string $string
      * @param string $given
+     *
      * @return string
      */
     public static function afterOfLast(string $string, string $given) : string

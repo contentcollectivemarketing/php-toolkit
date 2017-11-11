@@ -13,7 +13,7 @@ class ArrTest extends TestCase
             'a' => 'hello',
             'b' => '',
             'c' => false,
-            'd' => null
+            'd' => null,
         ];
         self::assertEquals('hello', Arr::get($array, 'a'));
         self::assertEquals('', Arr::get($array, 'b'));

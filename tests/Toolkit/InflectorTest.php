@@ -54,7 +54,7 @@ class InflectorTest extends TestCase
         $actual = [
             Inflector::camelize($a),
             Inflector::camelize($b),
-            Inflector::camelize($c)
+            Inflector::camelize($c),
         ];
 
         self::assertSame($expect, $actual);
@@ -65,12 +65,12 @@ class InflectorTest extends TestCase
         $expect = [
             'This Is A Test Script',
             'This Is My Test Script',
-            'Hello Everybody'
+            'Hello Everybody',
         ];
         $actual = [
             Inflector::humanize('this_is_a_test_script'),
             Inflector::humanize('this*is*my*test*script', '*'),
-            Inflector::humanize('Hello Everybody')
+            Inflector::humanize('Hello Everybody'),
         ];
         self::assertSame($expect, $actual);
     }
@@ -98,7 +98,7 @@ class InflectorTest extends TestCase
         ];
         $actual = [
             Inflector::delimit('ToUpperCase'),
-            Inflector::delimit('ToLowerCase', '|')
+            Inflector::delimit('ToLowerCase', '|'),
         ];
         self::assertSame($expect, $actual);
     }

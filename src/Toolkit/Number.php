@@ -14,6 +14,7 @@ class Number
      * @param float  $left
      * @param float  $right
      * @param string $operator
+     *
      * @return bool
      * @throws \InvalidArgumentException
      */
@@ -51,6 +52,7 @@ class Number
      *
      * @param string $phone
      * @param string $placeholder
+     *
      * @return string
      */
     public static function toPhone(string $phone, string $placeholder = '****') : string
@@ -68,6 +70,7 @@ class Number
      * @param float  $number
      * @param int    $decimal
      * @param string $point
+     *
      * @return string
      */
     public static function toNumber(
@@ -90,6 +93,7 @@ class Number
      * @param float  $money
      * @param int    $precision
      * @param string $currency
+     *
      * @return string
      * @see https://hotexamples.com/examples/-/NumberFormatter/-/php-numberformatter-class-examples.html
      */
@@ -130,6 +134,7 @@ class Number
      * @param int    $bytes
      * @param int    $precision
      * @param string $delimiter
+     *
      * @return string
      * @link https://stackoverflow.com/questions/2510434/format-bytes-to-kilobytes-megabytes-gigabytes
      */
@@ -153,6 +158,7 @@ class Number
      * @param float $a
      * @param float $b
      * @param bool  $flag
+     *
      * @return bool
      * @throws \InvalidArgumentException
      */
@@ -166,6 +172,7 @@ class Number
      * @param float $a
      * @param float $b
      * @param bool  $flag
+     *
      * @return bool
      */
     private static function epsilon(float $a, float $b, $flag = false) : bool
