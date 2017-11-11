@@ -42,6 +42,7 @@ class Tree
      *
      * @param array $array
      * @param int   $index
+     *
      * @return array
      */
     public static function getTree(array & $array, $index = 0) : array
@@ -66,6 +67,7 @@ class Tree
      *
      * @param array $array
      * @param int   $index
+     *
      * @return array
      */
     public static function makeTree(array & $array, $index = 0) : array
@@ -96,6 +98,7 @@ class Tree
      *
      * @param array $array
      * @param int   $index
+     *
      * @return array
      * @link
      */
@@ -126,6 +129,7 @@ class Tree
      *
      * @param array      $array
      * @param string|int $index
+     *
      * @return array
      */
     public static function findChild(array & $array, $index) : array
@@ -145,6 +149,7 @@ class Tree
      * Get id array from a tree array.
      *
      * @param array $array
+     *
      * @return array
      */
     public static function getTreeId(array & $array) : array

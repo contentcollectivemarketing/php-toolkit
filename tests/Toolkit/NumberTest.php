@@ -43,13 +43,13 @@ class NumberTest extends TestCase
             '111****2323',
             '112****4556',
             '133----9999',
-            '144 hello world'
+            '144 hello world',
         ];
         $actual = [
             Number::toPhone('11110142323'),
             Number::toPhone(11223344556),
             Number::toPhone('13399999999', '----', 2),
-            Number::toPhone('144 hello world')
+            Number::toPhone('144 hello world'),
         ];
         self::assertSame($expect, $actual);
     }
@@ -61,14 +61,14 @@ class NumberTest extends TestCase
             '99.99',
             '0.4445',
             '99.45',
-            '100.00'
+            '100.00',
         ];
         $actual = [
             Number::toNumber(888888),
             Number::toNumber(99.99),
             Number::toNumber(0.444456789, 4),
             Number::toNumber(99.45),
-            Number::toNumber(99.999)
+            Number::toNumber(99.999),
         ];
         self::assertSame($expect, $actual);
     }
@@ -123,7 +123,7 @@ class NumberTest extends TestCase
             Number::toBytes(24962496),
             Number::toBytes(24962496, 0, '-'),
             Number::toBytes(24962496, 4, ''),
-            Number::toBytes(1099511627776)
+            Number::toBytes(1099511627776),
         ];
         self::assertSame($expect, $actual);
     }

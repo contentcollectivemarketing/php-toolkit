@@ -103,6 +103,7 @@ class Regular
      * Get regular expression.
      *
      * @param string $key
+     *
      * @return string
      */
     public static function get(string $key) : string
@@ -114,6 +115,7 @@ class Regular
      * Verify the email address.
      *
      * @param string $email
+     *
      * @return bool
      */
     public static function isEmail(string $email) : bool
@@ -125,6 +127,7 @@ class Regular
      * Verify the mobile phone number.
      *
      * @param string|int $phone
+     *
      * @return bool
      */
     public static function isPhone($phone) : bool
@@ -136,6 +139,7 @@ class Regular
      * Verify the string
      *
      * @param string $chinese
+     *
      * @return bool
      */
     public static function isChinese(string $chinese) : bool
@@ -147,6 +151,7 @@ class Regular
      * Verify the china mobile phone number.
      *
      * @param string|int $phone
+     *
      * @return bool
      */
     public static function isChinaMobile($phone) : bool
@@ -158,6 +163,7 @@ class Regular
      * Verify the china unicom phone number.
      *
      * @param string|int $phone
+     *
      * @return bool
      */
     public static function isChinaUnicom($phone) : bool
@@ -169,6 +175,7 @@ class Regular
      * Verify the china telecom phone number.
      *
      * @param string|int $phone
+     *
      * @return bool
      */
     public static function isChinaTelecom($phone) : bool
@@ -180,6 +187,7 @@ class Regular
      * Verify the identity card.
      *
      * @param string $idCard
+     *
      * @return bool
      */
     public static function isIdCard(string $idCard) : bool
@@ -191,6 +199,7 @@ class Regular
      * Verify the qq number.
      *
      * @param int $qq
+     *
      * @return bool
      */
     public static function isQq(int $qq) : bool
@@ -202,6 +211,7 @@ class Regular
      * Verify the code hex code.
      *
      * @param string $code
+     *
      * @return bool
      */
     public static function isColorHexCode(string $code) : bool
@@ -213,6 +223,7 @@ class Regular
      * Verify the IPv4 address.
      *
      * @param string $ip
+     *
      * @return bool
      */
     public static function isIpv4(string $ip) : bool
@@ -225,6 +236,7 @@ class Regular
      *
      * @param string $pattern
      * @param mixed  $subject
+     *
      * @return bool
      */
     protected static function match(string $pattern, $subject) : bool

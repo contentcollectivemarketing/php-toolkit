@@ -34,7 +34,7 @@ class TreeTest extends TestCase
         $config = [
             'id'       => 'id',
             'parentId' => 'pid',
-            'children' => 'child'
+            'children' => 'child',
         ];
         Tree::setConfig($config);
         $a = $b = $c = $this->data;
@@ -51,25 +51,25 @@ class TreeTest extends TestCase
         $config = [
             'id'       => 'id',
             'parentId' => 'pid',
-            'children' => 'child'
+            'children' => 'child',
         ];
         Tree::setConfig($config);
         $expect = [
             10 => [
                 13 => [
                     19 => [23],
-                    20 => []
+                    20 => [],
                 ],
-                14 => []
+                14 => [],
             ],
             11 => [
                 15 => [21],
-                16 => []
+                16 => [],
             ],
             12 => [
                 17 => [22],
-                18 => []
-            ]
+                18 => [],
+            ],
         ];
         $data = $this->data;
         $array = Tree::makeTree($data);

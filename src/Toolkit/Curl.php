@@ -64,6 +64,7 @@ class Curl
      *
      * @param string $url
      * @param array  $data
+     *
      * @return $this
      */
     public function get(string $url, array $data = [])
@@ -84,6 +85,7 @@ class Curl
      *
      * @param string $url
      * @param array  $data
+     *
      * @return $this
      */
     public function post(string $url, array $data = [])
@@ -99,6 +101,7 @@ class Curl
      * Get information regarding a specific transfer.
      *
      * @param int $key
+     *
      * @return mixed
      * @see https://secure.php.net/manual/en/function.curl-getinfo.php
      */
@@ -112,6 +115,7 @@ class Curl
      *
      * @param int   $key
      * @param mixed $val
+     *
      * @return bool
      * @see https://secure.php.net/manual/en/function.curl-setopt.php
      */
